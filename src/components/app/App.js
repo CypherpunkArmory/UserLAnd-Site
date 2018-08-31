@@ -7,16 +7,18 @@ import Footer from './footer/Footer';
 import Home from '../home/Home';
 import About from '../about/About';
 import Jobs from '../jobs/Jobs';
+import Eula from '../eula/Eula';
+import Privacy from '../privacy/Privacy';
 import ScrollToTop from './ScrollToTop';
 
 
 export default class App extends Component {
 
   render() {
-    
+
     return (
       <div className="app">
-        
+
         <Router>
           <div>
             <Header/>
@@ -26,6 +28,8 @@ export default class App extends Component {
                 <ScrollToTop exact path="/" component={Home}/>
                 <ScrollToTop path="/about" component={About}/>
                 <ScrollToTop path="/jobs" component={Jobs}/>
+                <ScrollToTop path="/eula" component={Eula}/>
+                <ScrollToTop path="/privacy" component={Privacy}/>
                 <Redirect to="/"/>
               </Switch>
             </main>

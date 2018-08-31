@@ -18,12 +18,16 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   plugins: [
-    new CleanWebpackPlugin(`${path}/bundle.*.js`), 
-    new HtmlPlugin({ template: './src/index.html' })
+    new CleanWebpackPlugin(`${path}/bundle.*.js`),
+    new HtmlPlugin({ template: './src/index.html' }),
+    new HtmlPlugin({
+      filename: '404.html',
+      template: './src/404.html'
+    }),
   ],
   module: {
     rules: [
-      {   
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -37,9 +41,9 @@ module.exports = {
           },
           {
             loader: 'css-loader',
-            options: { 
+            options: {
               sourceMap: true,
-              importLoaders: 1 
+              importLoaders: 1
             }
           },
           {

@@ -7,11 +7,11 @@ import './footer.css';
 
 export default class Footer extends Component {
 
-  render() { 
+  render() {
     return (
       <footer role="contentinfo" id="footer">
-        <section className="footer"> 
-          
+        <section className="footer">
+
           {/* Scroll to footer section */}
           <ScrollableAnchor id={'contact'}>
 
@@ -30,7 +30,7 @@ export default class Footer extends Component {
 
                         {/* Title goes here */}
                         <h3 className="contact-title">Say Hello!</h3>
-          
+
                         {/* Text goes here */}
                         <p><a href="mailto:hello@userlandtech.com">hello@userlandtech.com</a></p>
                         <p>22311 SW Barber Blvd
@@ -44,7 +44,7 @@ export default class Footer extends Component {
               </div>
             </div>
           </ScrollableAnchor>
-          
+
         </section>
       </footer>
     );
