@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './home.css';
-import ScrollableAnchor from 'react-scrollable-anchor';
+// import ScrollableAnchor from 'react-scrollable-anchor';
 import { configureAnchors } from 'react-scrollable-anchor';
-import ProductImg from './product-sample.jpg';
+// import ProductImg from './product-sample.jpg';
 import LandingImg from './UserLand-Logo-Only.png';
-import ScrollAnimation from 'react-animate-on-scroll';
+// import ScrollAnimation from 'react-animate-on-scroll';
+
+import homeText from './HomeText';
+import ReactMarkdown from 'react-markdown';
 
 configureAnchors({  offset: -60, scrollDuration: 500  });
 
 class Home extends Component {
 
-  
-  render() { 
+
+  render() {
     return (
       <section className="main-container">
-        
+
 
         {/* --- Landing Section --- */}
         <div className="landing-container">
@@ -30,20 +33,24 @@ class Home extends Component {
           </div>
         </div>
 
+        <div className="product-container">
+          <div className="maxwidth-wrap">
+            <ReactMarkdown source={homeText} />
+          </div>
+        </div>
 
 
         {/* --- Product Section --- */}
-        <ScrollableAnchor id={'product'}>
+        {/*<ScrollableAnchor id={'product'}>
           <div className="product-container">
             <div className="maxwidth-wrap">
-            
+
               <div className="product-wrap">
-                {/* Title goes here */}
-                <h4 className="product-title">Power for what you do today. 
+
+                <h4 className="product-title">Power for what you do today.
                 <br/>And what you’ll discover tomorrow.</h4>
                 <div className="title-block-product"></div>
 
-                {/* Text goes here */}
                 <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
               </div>
 
@@ -78,12 +85,12 @@ class Home extends Component {
                 </div>
               </ScrollAnimation>
 
-         
+
             </div>
           </div>
-        </ScrollableAnchor>
+        </ScrollableAnchor>*/}
 
-        
+
       </section>
     );
   }
