@@ -32,9 +32,7 @@ export default class Footer extends Component {
                         <h3 className="contact-title">Say Hello!</h3>
 
                         {/* Text goes here */}
-                        <p><a href="mailto:hello@userlandtech.com">hello@userlandtech.com</a></p>
-                        <p>22311 SW Barber Blvd
-                        <br/>Portland, OR 97000</p>
+                        <p><a href="mailto:support@userland.tech">support@userland.tech</a></p>
                         <small>&#169; 2018. UserLAnd Technologies, LLC.</small>
                         <div style={{ height:'50px', width:'200px' }}>
                           <a href='https://play.google.com/store/apps/details?id=tech.ula&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png'/></a>
