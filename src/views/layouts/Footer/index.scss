@@ -1,0 +1,27 @@
+.footer {
+    background-color: #FDC44A;
+    text-align: center;
+    padding: 5rem 0;
+    &__cta {
+        margin-bottom: 1.2rem;
+    }
+    &__nav {
+        padding: 0;
+        justify-content: center;
+        .nav-item {
+            text-transform: capitalize;
+            &:not(:last-child){
+                margin-right: 2rem;
+            }
+        }
+    }
+    &__copy {
+        margin-top: 1rem;
+        font-weight: 600;
+    }
+    @media screen and (min-width: 992px) {
+        &__cta {
+            margin-bottom: 2rem;
+        }
+    }
+}
