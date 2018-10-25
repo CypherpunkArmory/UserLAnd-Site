@@ -76,7 +76,7 @@ If you need help or wish to exercise any of the above rights or have questions a
 Our websites may use various software technologies including “cookies,” “web beacons” and “pixel tags.” “Cookies” are small text files that we and others may place in visitors&apos; computer browsers to store their preferences. &quot;Web beacons&quot; or “Pixel tags” are small pieces of code placed on a web page or within the body of an email to monitor the behavior and collect data about the visitors viewing a web page or viewing or opening an email. For example, web beacons can be used to count the users who visit a web page or to deliver a cookie to the browser of a visitor viewing that page. We may use web beacons on our websites from time to time for this and to improve delivery of our services.
 
 ### Privacy Shield and Data Transfer
-For the personal information of residents of the European Economic Area (EEA), UserLAnd adheres to the principles of the Privacy Shield Principles (as outlined here: https:\/\/www.privacyshield.gov/welcome).
+For the personal information of residents of the European Economic Area (EEA), UserLAnd adheres to the principles of the Privacy Shield Principles (as outlined here: https://www.privacyshield.gov/welcome).
 
 If we transfer your personal information to third parties or countries outside the EEA we will only do so where one of the following applies:
 
