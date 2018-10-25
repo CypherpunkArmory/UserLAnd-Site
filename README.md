@@ -8,6 +8,9 @@ Below you will find some information on how to perform common tasks.<br>
 
 In the project directory, you can run:
 
+### `npm install`
+Install packages for first time setup.
+
 ### `npm start`
 
 Runs the app in the development mode.<br>
