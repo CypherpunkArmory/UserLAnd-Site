@@ -12,7 +12,7 @@ class Footer extends Component {
       <footer className='footer'>
         <div className="container">
           <div className='row'>
-            <div className='footer__logo col-12 mb-4'>
+            <div className='footer__logo col-12'>
               <img className='img-fluid' src={footerLogo} alt='' />
             </div>
             <div className='footer__cta col-12'>

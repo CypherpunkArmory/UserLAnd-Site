@@ -1,9 +1,12 @@
 .footer {
     background-color: #FDC44A;
     text-align: center;
-    padding: 5rem 0;
+    padding: 5rem 0 1.5rem;
     &__cta {
-        margin-bottom: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    &__logo {
+        margin-bottom: 1.5rem;
     }
     &__nav {
         padding: 0;
