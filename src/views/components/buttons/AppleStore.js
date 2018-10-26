@@ -4,6 +4,6 @@ import btnApple from './btn-Apple.png';
 
 export default function AppleStore() {
   return (
-    <a className='btn-apple' role='button' href='https://www.apple.com/itunes/'><img className='img-fluid' src={btnApple} alt=''/></a>
+    <span className='btn-apple' role='presentation' aria-label='apple store coming soon'><img className='img-fluid' src={btnApple} alt='App Store' /></span>
   )
 }
