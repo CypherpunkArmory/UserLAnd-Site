@@ -13,7 +13,7 @@ const Job = ({ title, applicationDeadline, description, requirements }) => {
           <ul className="job__requirements">
             {requirements.map((requirement, key) => <li key={key}>{requirement}</li>)}
           </ul>
-          <p>To apply, email your resume and cover letter to <strong><a className="link link_underline" href="mailto:jobs@userlandtech.com">jobs@userlandtech.com</a></strong></p>
+          <p>To apply, email your resume and cover letter to <strong><a className="link link_underline" href="mailto:jobs@userland.tech">jobs@userland.tech</a></strong></p>
         </div>
       </div>
     </li>
