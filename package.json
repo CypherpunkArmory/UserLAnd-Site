@@ -1,6 +1,6 @@
 {
   "name": "userland-site",
-  "homepage": "https://cypherpunkarmory.github.io/UserLAnd-Site",
+  "homepage": "https://userland.tech",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
