@@ -1,29 +1,14 @@
 export default {
     jobs: [
         {
-            title: "Back-End Developer",
-            applicationDeadline: "6/30/2018",
-            description: "A back-end web developer is responsible for server-side web application logic and integration of the work front-end developers do. Back-end developers are usually write the web services and APIs used by front-end developers and mobile application developers.",
+            title: "Software Engineer",
+            applicationDeadline: "11/15/2018",
+            description: "This software engineering position is for someone who lives and breathes Linux and is not afraid to get their hands dirty and work at the lowest levels of code.  This is for someone who might be a kernel hacker or a linux magician.",
             requirements: [
-                "You are smart and keep your head up in the face of a challenge.",
-                "You are a quick study and enjoy learning new things.",
-                "You have a demonstrated aptitude for software development.",
-                "You are not afraid to dive into complex codebases teeming with both the new and shiny as well as the ancient and mysterious.",
-                "You diagnose and squash technical debt with glee.",
-                "You like helping others, regardless of their technical prowess."
-            ]
-        },
-        {
-            title: "Mid Back-End Developer",
-            applicationDeadline: "8/15/2018",
-            description: "A back-end web developer is responsible for server-side web application logic and integration of the work front-end developers do. Back-end developers are usually write the web services and APIs used by front-end developers and mobile application developers.",
-            requirements: [
-                "You are smart and keep your head up in the face of a challenge.",
-                "You are a quick study and enjoy learning new things.",
-                "You have a demonstrated aptitude for software development.",
-                "You are not afraid to dive into complex codebases teeming with both the new and shiny as well as the ancient and mysterious.",
-                "You diagnose and squash technical debt with glee.",
-                "You like helping others, regardless of their technical prowess."
+                "Works in and has a strong understanding of Linux and standard distributions.",
+                "Has strong programming skills in bash and C.",
+                "Has additional programming skills in things like perl, python and such.",
+                "Communicates openly and effectively.",
             ]
         },
     ]
