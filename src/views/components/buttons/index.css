@@ -1,0 +1,15 @@
+.btn-google, .btn-apple {
+    display: inline-block;
+    width: 43vw;
+    max-width: 9.5rem;
+    border-radius: 6px;
+}
+
+.btn-google {
+    margin-right: 0.6rem;
+}
+
+.btn-apple {
+    pointer-events: none;
+    cursor: default;
+}
