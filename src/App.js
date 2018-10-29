@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -19,14 +20,28 @@ class App extends Component {
   render() {
     return (
       <div className='App'>
+        <Helmet
+          titleTemplate='%s - Use Linux Everywhere'
+        >
+          {/* Title: General title (Max 60 characters)*/}
+          <title>UserLAnd</title>
+          {/* Canonical Meta:  is a way of telling search engines that a specific URL represents the master copy of a page. Using the canonical tag prevents problems caused by identical or "duplicate" content appearing on multiple URLs. */}
+          <link rel='canonical' href='http://userland.tech/' />
+          {/* Description Meta:  is an attribute that helps describe your page for SEO. (Max 275 characters) */}
+          <meta name='description' content='Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!' />
+          {/* Open Graph Meta:  The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook. */}
+          <meta property='og:title' content='UserLAnd - Use Linux Everywhere' />
+          <meta property='og:type' content='website' />
+          <meta property='og:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
+        </Helmet>
         <Router>
           <div>
             <Nav />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/jobs' component={Jobs} />
-              <Route exact path='/policy' component={() => <DefaultPage markdown={privacyText}/>} />
-              <Route exact path='/eula' component={() => <DefaultPage markdown={eulaText}/>} />
+              <Route exact path='/policy' component={() => <DefaultPage markdown={privacyText} />} />
+              <Route exact path='/eula' component={() => <DefaultPage markdown={eulaText} />} />
             </Switch>
             <Footer />
           </div>
