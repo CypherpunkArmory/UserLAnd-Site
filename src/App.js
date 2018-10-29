@@ -21,7 +21,7 @@ class App extends Component {
     return (
       <div className='App'>
         <Helmet
-          titleTemplate='%s - Use Linux Everywhere'
+          titleTemplate='%s - Use Linux Anywhere'
         >
           {/* Title: General title (Max 60 characters)*/}
           <title>UserLAnd</title>
@@ -30,7 +30,7 @@ class App extends Component {
           {/* Description Meta:  is an attribute that helps describe your page for SEO. (Max 275 characters) */}
           <meta name='description' content='Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!' />
           {/* Open Graph Meta:  The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook. */}
-          <meta property='og:title' content='UserLAnd - Use Linux Everywhere' />
+          <meta property='og:title' content='UserLAnd - Use Linux Anywhere' />
           <meta property='og:type' content='website' />
           <meta property='og:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
         </Helmet>

@@ -1,6 +1,6 @@
 export default {
     hero: {
-        header: "Use Linux Everywhere",
+        header: "UserLAnd: Use Linux Anywhere",
         body: "Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android."
     },
     features: {

@@ -13,7 +13,7 @@ class Jobs extends Component {
         >
           {/* Title: General title (Max 60 characters)*/}
           {/* Description Meta:  is a way of telling search engines that a specific URL represents the master copy of a page. Using the canonical tag prevents problems caused by identical or "duplicate" content appearing on multiple URLs. */}
-          <meta name='description' content="Join UserLAnd and work with some of the world's smartest people to create amazing experiences — and make a difference." />
+          <meta name='description' content="Join UserLAnd and help us share Linux with the world." />
           {/* Open Graph Meta:  The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook. */}
           <meta property='og:title' content='UserLAnd - Join UserLAnd' />
           <meta property='og:type' content='website' />
