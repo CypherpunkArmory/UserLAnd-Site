@@ -1,7 +1,7 @@
 .footer {
     background-color: #FDC44A;
     text-align: center;
-    padding: 5rem 0 1.5rem;
+    padding: 3rem 0 3rem;
     &__cta {
         margin-bottom: 1rem;
     }
@@ -23,8 +23,9 @@
         font-weight: 600;
     }
     @media screen and (min-width: 992px) {
+        padding: 5rem 0 1.5rem;
         &__cta {
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
         }
     }
 }
