@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import phoneScr from './phone.png'
 import GooglePlay from '../../components/buttons/GooglePlay';
-import phoneScrFeature from './galaxys8-feature.png'
-import phoneScrFeatureHorizontal from './phone-feature-horizontal.png'
+import phoneScrFeature from './phone-feature.gif'
+import phoneScrFeatureHorizontal from './phone-feature-horizontal.gif'
 import AppleStore from '../../components/buttons/AppleStore';
 import hometext from './hometext';
 import './index.scss';
