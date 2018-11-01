@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { parse } from 'url';
+import { homepage } from '../package.json';
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab, faGithub, faTwitter, faSlack } from '@fortawesome/free-brands-svg-icons'
@@ -15,6 +17,8 @@ import Nav from './views/layouts/Nav';
 import Footer from './views/layouts/Footer';
 
 library.add(fab, faCheckSquare, faGithub, faTwitter, faSlack)
+
+const basename = parse(homepage).pathname;
 
 class App extends Component {
   render() {
@@ -34,7 +38,7 @@ class App extends Component {
           <meta property='og:type' content='website' />
           <meta property='og:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
         </Helmet>
-        <Router>
+        <Router basename={basename}>
           <div>
             <Nav />
             <Switch>
