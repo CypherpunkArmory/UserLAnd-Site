@@ -36,12 +36,18 @@
     @media screen and (orientation: landscape) {
         padding-top: 33vh;
     }
-    @media screen and (min-width: 800px) {
+    @media screen and (min-width: 900px) {
         padding-top: 0;
         margin-bottom: 0;
         display: flex;
         flex-direction: column;
         justify-content: center;
+        height: 95vh;
+        max-height: 56rem;
+        &__title {
+            font-size: 3.7rem;
+            max-width: 50%;
+        }
         &__media {
             bottom: 0;
             width: 37rem;
@@ -54,25 +60,21 @@
             }
         }  
     }
-    @media screen and (min-width: 835px) {
-        height: 95vh;
-        max-height: 46rem;
-    }
     @media screen and (min-width: 995px) {
-        &__title {
-            font-size: 3.7rem;
+        & > .container {
+            position: relative;
         }
         &__media {
-            bottom: -3rem;
-            width: 45rem;
-            right: -11rem;
+            bottom: -14rem;
+            right: -14rem;
+            width: 62vw;
         }
     }
-    @media screen and (min-width: 1400px) {
+    @media screen and (min-width: 1200px) {
         &__media {
-            bottom: -3vw;
+            bottom: -16rem;
+            right: -16rem;
             width: 60vw;
-            right: -14vw;
             max-width: 51rem;
         }
     }

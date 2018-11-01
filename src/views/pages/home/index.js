@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import phoneScr from './phone.png'
+import phoneScr from './vertical-screenshot.png'
 import GooglePlay from '../../components/buttons/GooglePlay';
 import phoneScrFeature from './phone-feature.gif'
 import phoneScrFeatureHorizontal from './phone-feature-horizontal.gif'
