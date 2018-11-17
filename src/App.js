@@ -20,7 +20,6 @@ import Footer from './views/layouts/Footer';
 library.add(fab, faCheckSquare, faGithub, faTwitter, faSlack)
 
 const basename = parse(homepage).pathname;
-
 class App extends Component {
   render() {
     return (
@@ -36,8 +35,17 @@ class App extends Component {
           <meta name='description' content='Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!' />
           {/* Open Graph Meta:  The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook. */}
           <meta property='og:title' content='UserLAnd - Use Linux Anywhere' />
+          <meta property="og:description" content="Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!" />
           <meta property='og:type' content='website' />
           <meta property='og:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
+          <meta property="og:url" content='http://userland.tech/' />
+          {/* Twitter Card: Same as Open Graph but exclusive to twitter */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta name="twitter:site" content="@userlandtech" />
+          <meta name="twitter:creator" content="@CorbinChampion" />
+          <meta name="twitter:title" content="UserLAnd - Use Linux Anywhere" />
+          <meta name="twitter:description" content="Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!" />
+          <meta name="twitter:image" content="https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg" />
         </Helmet>
         <Router basename={basename}>
           <div>

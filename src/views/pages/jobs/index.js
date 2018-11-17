@@ -16,8 +16,14 @@ class Jobs extends Component {
           <meta name='description' content="Join UserLAnd and help us share Linux with the world." />
           {/* Open Graph Meta:  The Open Graph protocol enables any web page to become a rich object in a social graph. For instance, this is used on Facebook. */}
           <meta property='og:title' content='UserLAnd - Join UserLAnd' />
+          <meta property='og:description' content='Join UserLAnd and help us share Linux with the world.' />
           <meta property='og:type' content='website' />
           <meta property='og:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
+          {/* Twitter Card: Same as Open Graph but exclusive to twitter */}
+          <meta name='twitter:card' content='summary_large_image' />
+          <meta name='twitter:title' content='UserLAnd - Join UserLAnd' />
+          <meta name='twitter:description' content='Join UserLAnd and help us share Linux with the world.' />
+          <meta name='twitter:image' content='https://res.cloudinary.com/dmv3djaoq/image/upload/v1540821843/UserLand_Logo_RGB_Yellow_ysuigp.jpg' />
         </Helmet>
         <div className="hero jobs__hero">
           <div className="jobs__hero_overlay"></div>
