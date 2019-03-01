@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Job = ({ title, salaryRange, description, dayToDayTasks, requirementsDescription, requirements, extraAwesomePointsDescription, extraAwesomePoints, benefits }) => {
+const Job = ({ title, salaryRange, jobDescription, companyBackground, detailedJobDescription, dayToDayTitle, dayToDayTasks, requirementsDescription, requirements, extraAwesomePointsDescription, extraAwesomePoints, benefits }) => {
   return (
     <li className="job">
       <div className="row">
@@ -10,18 +10,23 @@ const Job = ({ title, salaryRange, description, dayToDayTasks, requirementsDescr
         </div>
         <div className="job__body col-lg-8">
 
-          <p className="display-linebreak">{description}</p>
+          <p>{jobDescription}</p>
+          <p>{companyBackground}</p>
+          <p>{detailedJobDescription}</p>
+          
+          <br />
+          <p>{dayToDayTitle}</p>
           <ul className="job__requirements">
             {dayToDayTasks.map((requirement, key) => <li key={key}>{requirement}</li>)}
           </ul>
           <br />
 
-          <p className="display-linebreak">{requirementsDescription}</p>
+          <p>{requirementsDescription}</p>
           <ul className="job__requirements">
             {requirements.map((requirement, key) => <li key={key}>{requirement}</li>)}
           </ul>
           <br />
-          <p className="display-linebreak">{extraAwesomePointsDescription}</p>
+          <p>{extraAwesomePointsDescription}</p>
           <ul className="job__requirements">
             {extraAwesomePoints.map((requirement, key) => <li key={key}>{requirement}</li>)}
           </ul>
