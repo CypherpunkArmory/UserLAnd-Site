@@ -1,0 +1,186 @@
+.hero {
+    position: relative;
+    padding-top: 33%;
+    height: 50rem;
+    margin-bottom: 4rem;
+    overflow: hidden;
+    background: linear-gradient(-135deg, #FFB751 0%, #FDC149 29%, #FFD652 82%, #FFD900 100%);
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: -1px;
+        width: 100%;
+        height: 100%;
+        background: url("../images/white-gray-shape.svg") no-repeat 0 100%;
+        background-size: 100% 13vw;
+    }
+    &__title {
+        font-family: 'Signika', 'Maven Pro', sans-serif;
+        font-size: 2.7rem;
+    }
+    &__body {
+        position: relative;
+        z-index: 33;
+        p {
+            margin-bottom: 1.5rem;
+            max-width: 90%;
+            font-weight: 500;
+        }
+    }
+    &__media {
+        position: absolute;
+        bottom: -5rem;
+        width: 30rem;
+        right: -9rem;
+    }
+    @media screen and (orientation: landscape) {
+        padding-top: 33vh;
+    }
+    @media screen and (min-width: 900px) {
+        padding-top: 0;
+        margin-bottom: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 95vh;
+        max-height: 56rem;
+        &__title {
+            font-size: 3.7rem;
+            max-width: 50%;
+        }
+        &__media {
+            bottom: 0;
+            width: 37rem;
+            right: -12rem;
+            height: auto;
+        }
+        &__body {
+            p {
+                width: 50%;
+            }
+        }  
+    }
+    @media screen and (min-width: 995px) {
+        & > .container {
+            position: relative;
+        }
+        &__media {
+            bottom: -14rem;
+            right: -14rem;
+            width: 62vw;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        &__media {
+            bottom: -16rem;
+            right: -16rem;
+            width: 60vw;
+            max-width: 51rem;
+        }
+    }
+}
+.features {
+    padding-bottom: 4rem;
+    background: url("../images/bg-shape.svg") no-repeat bottom;
+    background-size: 100% 35%;
+    @media screen and (min-width: 992px) {
+        background-size: 100% 46%;
+    }
+}
+.feature {
+    display: flex;
+    flex-direction: column;
+    &:not(:last-child) {
+        margin-bottom: 10rem;
+    }
+    &__title {
+        display: inline-block;
+        position: relative;
+        align-self: baseline;
+        font-size: 1.7rem;
+        font-weight: 600;
+        margin-bottom: 1.4rem;
+        letter-spacing: 1px;
+        text-transform: capitalize;
+        &::after {
+            content: "";
+            position: absolute;
+            top: -0.5rem;
+            left: 0;
+            width: 15%;
+            height: 0.5rem;
+            background-color: #FFCC05;
+        }
+    }
+    &__media {
+        margin-right: auto;
+        margin-left: auto;
+        position: relative;
+        left: 0;
+    }
+    &_horizontal {
+        text-align: center;
+        p {
+            text-align: left;
+        }
+    }
+    &_horizontal &__media {
+        width: 100%;
+        margin-bottom: 4rem;
+        img {
+            filter: drop-shadow(0px 9px 30px rgba(193, 181, 199, 0.53));
+        }
+    }
+    &_vertical &__media {
+        height: 100vw;
+        margin-top: 4rem;
+        img {
+            width: auto;
+            height: 100%;
+            filter: drop-shadow(-9px 0px 20px rgba(193, 181, 199, 0.53));
+        }
+    }
+    @media screen and (min-width: 575px) {
+        &_vertical &__media {
+            height: 35rem; 
+        }
+    }
+    @media screen and (min-width: 767px) {
+        &_horizontal &__media {
+            width: 35rem; 
+        }
+    }
+    @media screen and (min-width: 800px) {
+        &_vertical &__media, &_vertical &__body {
+            margin-top: 0;
+            flex: 0 0 50%;
+        }
+        &_vertical &__body {
+            margin-top: 3rem;
+        }
+        &_vertical {
+            flex-direction: row-reverse;
+        }
+    }
+    @media screen and (min-width: 992px) {
+        top: -5rem;
+        position: relative;
+        &_horizontal &__body {
+            margin: auto;
+            width: 70%;
+        }
+        &_vertical &__body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        &_vertical &__media {
+            flex: 0 0 30%;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        &_vertical &__body {
+            justify-content: center;
+        }
+    }
+}
