@@ -10,6 +10,7 @@ import hometext from '../content/home'
 import GooglePlay from '../components/buttons/GooglePlay'
 import AppleStore from '../components/buttons/AppleStore'
 import Layout from '../components/layout'
+import SEO from '../components/seo';
 
 class Home extends Component {
   render() {
@@ -21,6 +22,7 @@ class Home extends Component {
 
     return (
       <Layout>
+        <SEO title="Use Linux Anywhere" />
         <div className="hero">
           <div className="container">
             <div className="hero__body">

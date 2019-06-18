@@ -41,9 +41,10 @@ const Job = ({ title, applicationDeadline, description, requirements }) => {
 const jobsPage = () => (
   <Layout>
     <div className="jobs">
-      <SEO title="Join UserLAnd" description="Join UserLAnd and help us share Linux with the world">
-        <title>Jobs</title>
-      </SEO>
+      <SEO
+        title="Jobs"
+        description="Join UserLAnd and help us share Linux with the world"
+      />
       <div className="hero jobs__hero">
         <div className="jobs__hero_overlay"></div>
         <div className="container">
