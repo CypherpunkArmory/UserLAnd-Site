@@ -1,0 +1,175 @@
+.download {
+  position: relative;
+  text-align: center;
+  margin-bottom: 7rem;
+
+  &__btn {
+    text-transform: initial;
+  }
+
+  &__list {
+    margin: 0 0 5rem 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    @media screen and (min-width: 769px) {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-around;
+    }
+  }
+}
+
+.platform {
+  &__logo {
+    margin-bottom: 1rem;
+    width: 50px;
+    height: auto;
+  }
+
+  &__alternatives {
+    display: none;
+  }
+
+  .icon {
+    width: 7rem;
+    height: 7rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    h6 {
+      margin: 0;
+      color: #d7d4ce;
+      font-weight: 600;
+    }
+
+    &__shape {
+      fill: #ced4d7;
+    }
+
+    @media screen and (min-width: 510px) {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+  &_active {
+    .platform__alternatives {
+      text-align: center;
+      text-decoration: underline;
+      margin-top: 1rem;
+      display: block;
+      max-width: 10rem;
+
+      a {
+        font-weight: 400;
+        display: block;
+        color: #ffcc05;
+      }
+
+      @media screen and (min-width: 991px) {
+        a {
+          display: inline-block;
+        }
+        a:not(:last-child) {
+          margin-right: 0.8rem;
+        }
+      }
+    }
+  }
+  &_active .icon,
+  .icon:hover {
+    background: #ffe8b5;
+
+    h6 {
+      color: #585245;
+    }
+
+    .icon__shape_dark-yellow {
+      fill: #fdc44a;
+    }
+
+    .icon__shape_light-yellow {
+      fill: #ffd270;
+    }
+  }
+}
+
+.setup {
+  display: block;
+  margin-bottom: 7rem;
+
+  &__steps {
+    list-style: none;
+    display: block;
+    padding-left: 0;
+  }
+}
+.step {
+  margin-bottom: 4rem;
+
+  &__head {
+    margin-bottom: 0.7rem;
+    font-family: inherit;
+
+    span {
+      font-family: inherit;
+      color: #fdc44a;
+      margin-right: 0.3rem;
+    }
+
+    h3 {
+      position: relative;
+      font-size: 1.4rem;
+    }
+  }
+
+  p,
+  a,
+  .code {
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    &:not(:last-child) {
+      margin-bottom: 7rem;
+    }
+
+    width: 70%;
+    max-width: 40rem;
+    margin-left: auto;
+    margin-right: auto;
+    span {
+      position: absolute;
+      left: -1.8rem;
+      margin-right: 0;
+      top: 0;
+    }
+  }
+}
+
+.code {
+  display: inline-block;
+  overflow-x: scroll;
+  border-radius: 6px;
+  width: 100%;
+  background-color: #3c3c3c;
+  padding: 0.5rem 0.8rem;
+
+  code {
+    color: white;
+    padding: 0;
+    width: unset;
+    white-space: nowrap;
+  }
+}

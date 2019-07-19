@@ -9,14 +9,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { StaticQuery, graphql } from 'gatsby'
 
-import './layout.css'
+import './layout.scss'
 import ogImage from '../images/og-image.jpg'
 
 import Nav from './Nav'
 import Footer from './Footer'
 import SEO from './seo'
 
-const Layout = ({ children }) => (
+const Layout = ({ children, className = "" }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,7 +33,7 @@ const Layout = ({ children }) => (
           <meta property="og:image" content={ogImage} />
         </SEO>
         <Nav siteTitle={data.site.siteMetadata.title} />
-        <main>{children}</main>
+        <main className={className}>{children}</main>
         <Footer />
       </>
     )}

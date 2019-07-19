@@ -5,8 +5,8 @@ import './index.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import footerLogo from './LogoHeader.svg'
-import GooglePlay from '../buttons/GooglePlay'
-import AppleStore from '../buttons/AppleStore'
+import GooglePlay from '../Button/GooglePlay'
+import AppleStore from '../Button/AppleStore'
 
 class Footer extends Component {
   render() {

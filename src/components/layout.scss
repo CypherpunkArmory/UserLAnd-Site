@@ -17,14 +17,47 @@ body {
   font-size: 1.2rem;
   line-height: 1.666;
 }
+
+.page {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+
+  &__header {
+    margin-bottom: 3rem;
+    text-align: center;
+
+    @media screen and (min-width: 769px) {
+      width: 60%;
+      max-width: 40rem;
+    }
+
+    @media screen and (min-width: 991px) {
+      width: 50%;
+    }
+  }
+
+  &__title {
+    display: inline-block;
+    position: relative;
+    align-self: baseline;
+    font-size: 2.4rem;
+    font-weight: 600;
+    margin-bottom: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+  }
+}
+
 .link {
   color: inherit;
   position: relative;
 }
+
 .link:hover {
   color: #fdc44a;
   text-decoration: none;
 }
+
 .link_underline::after {
   content: '';
   width: 100%;

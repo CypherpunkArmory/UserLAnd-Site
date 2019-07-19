@@ -26,6 +26,16 @@ class Nav extends Component {
               </Link>
             </li>
             <li className="nav-item mr-3">
+              <Link className="nav-link" to="/features">
+                Features
+              </Link>
+            </li>
+            <li className="nav-item mr-3">
+              <Link className="nav-link" to="/download">
+                Download
+              </Link>
+            </li>
+            <li className="nav-item mr-3">
               <a
                 className="nav-link"
                 href="https://github.com/CypherpunkArmory/UserLAnd/issues"

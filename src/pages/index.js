@@ -7,8 +7,8 @@ import '../styles/home.scss'
 
 import hometext from '../content/home'
 
-import GooglePlay from '../components/buttons/GooglePlay'
-import AppleStore from '../components/buttons/AppleStore'
+import GooglePlay from '../components/Button/GooglePlay'
+import AppleStore from '../components/Button/AppleStore'
 import Layout from '../components/layout'
 import SEO from '../components/seo';
 
