@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import classnames from 'classnames'
+import _ from 'lodash'
 
 import '../styles/download.module.scss'
 
@@ -20,6 +21,9 @@ class downloadPage extends Component {
     if (navigator.appVersion.indexOf('Win') !== -1) OSName = 'win'
     if (navigator.appVersion.indexOf('Mac') !== -1) OSName = 'mac'
     if (navigator.appVersion.indexOf('Linux') !== -1) OSName = 'linux'
+    if (navigator.appVersion.indexOf('Android') !== -1) OSName = 'android'
+    if (navigator.appVersion.indexOf('iPhone') !== -1) OSName = 'iOS'
+    if (navigator.appVersion.indexOf('iPad') !== -1) OSName = 'iOS'
 
     this.setState({
       selectedOs: content.supportedOS.find(OS => OS.id === OSName),
@@ -64,82 +68,80 @@ class downloadPage extends Component {
                     <h6>{OS.name}</h6>
                   </div>
                   <div styleName="platform__alternatives">
-                    <a
-                      href={OS.downloadLinks['32']}
-                      download
-                      onClick={this.setupRedirect}
-                    >
-                      32-bit
-                    </a>
-                    <a
-                      href={OS.downloadLinks['64']}
-                      download
-                      onClick={this.setupRedirect}
-                    >
-                      64-bit
-                    </a>
-                    {OS.name === 'Linux' ? (
-                      <>
-                        <a
-                          href={OS.downloadLinks['arm']}
-                          download
-                          onClick={this.setupRedirect}
-                        >
-                          ARM
-                        </a>
-                        <a
-                          href={OS.downloadLinks['arm64']}
-                          download
-                          onClick={this.setupRedirect}
-                        >
-                          ARM64
-                        </a>
-                      </>
-                    ) : (
-                      ' '
-                    )}
+                    {OS.downloads.alternatives &&
+                      OS.downloads.alternatives.map(alternativeDownload => {
+                        return (
+                          <a
+                            href={alternativeDownload.url}
+                            download={alternativeDownload.directDownload}
+                            key={alternativeDownload.url}
+                            target={
+                              alternativeDownload.directDownload
+                                ? '_self'
+                                : '_blank'
+                            }
+                            onClick={this.setupRedirect}
+                          >
+                            {alternativeDownload.name}
+                          </a>
+                        )
+                      })}
                   </div>
                 </li>
               )
             })}
           </ul>
-          {selectedOs && (
-            <Button
-              styleName="download__btn"
-              tag="a"
-              href={selectedOs.downloadLinks['64']}
-              onClick={this.setupRedirect}
-              download
-              round
-            >
-              Download for {selectedOs.name}
-            </Button>
-          )}
+
+          {selectedOs &&
+            selectedOs.downloads &&
+            (_.isEmpty(selectedOs.downloads.default) ? (
+              <Button styleName="download__btn" round disabled>
+                Coming Soon {selectedOs ? `For ${selectedOs.name}` : ''}
+              </Button>
+            ) : (
+              <Button
+                styleName="download__btn"
+                tag="a"
+                href={selectedOs.downloads.default.url}
+                onClick={this.setupRedirect}
+                download={selectedOs.downloads.default.directDownload}
+                target={
+                  selectedOs.downloads.default.directDownload
+                    ? '_self'
+                    : '_blank'
+                }
+                round
+              >
+                Download for {selectedOs.name}
+              </Button>
+            ))}
         </div>
-        <div styleName="setup" ref={this.setupRef} className="container">
-          <div className="container page__header">
-            <h2>Holepunch Setup</h2>
+        {selectedOs && !_.isEmpty(selectedOs.setupSteps) && (
+          <div styleName="setup" ref={this.setupRef} className="container">
+            <div className="container page__header">
+              <h2>Holepunch Setup</h2>
+            </div>
+            <ol styleName="setup__steps">
+              {selectedOs.setupSteps.map((step, i) => {
+                return (
+                  <li key={step.title} styleName="step">
+                    <div styleName="step__head">
+                      <h3>
+                        <span>{i + 1}.</span>
+                        {step.title}
+                      </h3>
+                    </div>
+                    <div className="step__body">
+                      {step.body.map(({ component: Component, content }, i) => {
+                        return <Component key={i}>{content}</Component>
+                      })}
+                    </div>
+                  </li>
+                )
+              })}
+            </ol>
           </div>
-          <ol styleName="setup__steps">
-            {content.setupSteps.map((step, i) => {
-              return (
-                <li key={step.title} styleName="step">
-                  <div styleName="step__head">
-                    <h3>
-                      <span>{i + 1}.</span>
-                      {step.title}
-                    </h3>
-                  </div>
-                  <div className="step__body">
-                    {step.body.map(({ component: Component, content }, i) => {
-                      return <Component key={i}>{content}</Component>
-                    })}
-                  </div>
-                </li>
-              )
-            })}
-          </ol>
-        </div>
+        )}
       </Layout>
     )
   }

@@ -5,6 +5,7 @@
 
   &__btn {
     text-transform: initial;
+    font-weight: 600 !important;
   }
 
   &__list {
@@ -16,7 +17,7 @@
     flex-wrap: wrap;
 
     @media screen and (min-width: 769px) {
-      width: 70%;
+      width: 90%;
       margin-left: auto;
       margin-right: auto;
       justify-content: space-around;
@@ -48,12 +49,12 @@
 
     h6 {
       margin: 0;
-      color: #d7d4ce;
+      color: #EBEBEB;
       font-weight: 600;
     }
 
     &__shape {
-      fill: #ced4d7;
+      fill: #EBEBEB;
     }
 
     @media screen and (min-width: 510px) {
@@ -61,6 +62,7 @@
       height: 10rem;
     }
   }
+  
   &_active {
     .platform__alternatives {
       text-align: center;
@@ -87,18 +89,14 @@
   }
   &_active .icon,
   .icon:hover {
-    background: #ffe8b5;
+    background: #ffdf7b;
 
     h6 {
-      color: #585245;
+      color: #ffffff;
     }
 
-    .icon__shape_dark-yellow {
-      fill: #fdc44a;
-    }
-
-    .icon__shape_light-yellow {
-      fill: #ffd270;
+    .icon__shape {
+      fill: #ffffff;
     }
   }
 }
