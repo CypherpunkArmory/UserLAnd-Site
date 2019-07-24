@@ -1,0 +1,14 @@
+.form {
+    position: relative;
+    :global(.invalid-tooltip) {
+        top: unset;
+        bottom: -0.8rem;
+        right: 0.5rem;
+        background-color: #fff;
+        color: #FE5C5C;
+        margin-top: 0;
+        svg {
+            margin-right: 0.3rem;
+        }
+    }
+}
