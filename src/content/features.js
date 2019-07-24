@@ -1,6 +1,10 @@
-import openSourceIcon from '../images/open-source-icon.svg';
-import protectionIcon from '../images/protection-icon.svg';
-import usabilityIcon from '../images/usability-icon.svg';
+import openSourceIcon from '../images/features/open-source-icon.svg';
+import protectionIcon from '../images/features/security-icon.svg';
+import usabilityIcon from '../images/features/usability-icon.svg';
+import cloudIcon from '../images/features/cloud-icon.svg';
+import guiIcon from '../images/features/gui-icon.svg';
+import locallyIcon from '../images/features/locally-icon.svg';
+import terminalIcon from '../images/features/terminal-icon.svg';
 
 export default {
   pageTitle: 'Features',
@@ -23,6 +27,30 @@ export default {
       description:
         'The entire service is intuitive to use and does what it is supposed to do.',
       icon: usabilityIcon,
+    },
+    {
+      title: 'Cloud',
+      description:
+        'The entire service is intuitive to use and does what it is supposed to do.',
+      icon: cloudIcon,
+    },
+    {
+      title: 'GUI',
+      description:
+        'The entire service is intuitive to use and does what it is supposed to do.',
+      icon: guiIcon,
+    },
+    {
+      title: 'Locally',
+      description:
+        'The entire service is intuitive to use and does what it is supposed to do.',
+      icon: locallyIcon,
+    },
+    {
+      title: 'Terminal',
+      description:
+        'The entire service is intuitive to use and does what it is supposed to do.',
+      icon: terminalIcon,
     },
   ],
 }
