@@ -9,11 +9,11 @@ import terminalIcon from '../images/features/terminal-icon.svg';
 export default {
   pageTitle: 'Features',
   pageSubtitle:
-    'Everything you need to share your local servers with the world.',
+    'Everything you need to dive into Linux.',
   features: [
     {
       title: 'FOSS',
-      description: 'Open source both on the client and the server.',
+      description: 'Open source through and through.',
       icon: openSourceIcon,
     },
     {
@@ -29,28 +29,28 @@ export default {
       icon: usabilityIcon,
     },
     {
+      title: 'Local',
+      description:
+        'Install and run Linux on your device.  Free and no root required.',
+      icon: locallyIcon,
+    },
+    {
       title: 'Cloud',
       description:
-        'The entire service is intuitive to use and does what it is supposed to do.',
+        'Install and run Linux in the cloud and then connect to it from your device',
       icon: cloudIcon,
-    },
-    {
-      title: 'GUI',
-      description:
-        'The entire service is intuitive to use and does what it is supposed to do.',
-      icon: guiIcon,
-    },
-    {
-      title: 'Locally',
-      description:
-        'The entire service is intuitive to use and does what it is supposed to do.',
-      icon: locallyIcon,
     },
     {
       title: 'Terminal',
       description:
-        'The entire service is intuitive to use and does what it is supposed to do.',
+        'Command line power at your fingertips.',
       icon: terminalIcon,
+    },
+    {
+      title: 'Desktop',
+      description:
+        'Run a simple X session or a full blown desktop easily.',
+      icon: guiIcon,
     },
   ],
 }

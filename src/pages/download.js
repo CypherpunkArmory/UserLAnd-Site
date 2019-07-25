@@ -119,7 +119,7 @@ class downloadPage extends Component {
         {selectedOs && !_.isEmpty(selectedOs.setupSteps) && (
           <div styleName="setup" ref={this.setupRef} className="container">
             <div className="container page__header">
-              <h2>Holepunch Setup</h2>
+              <h2>UserLAnd Setup</h2>
             </div>
             <ol styleName="setup__steps">
               {selectedOs.setupSteps.map((step, i) => {

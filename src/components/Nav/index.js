@@ -21,11 +21,6 @@ class Nav extends Component {
           </Link>
           <ul className="flex-row navbar-nav ml-auto">
             <li className="nav-item mr-3">
-              <Link className="nav-link" to="/jobs">
-                Jobs
-              </Link>
-            </li>
-            <li className="nav-item mr-3">
               <Link className="nav-link" to="/features">
                 Features
               </Link>
@@ -36,21 +31,14 @@ class Nav extends Component {
               </Link>
             </li>
             <li className="nav-item mr-3">
-              <a
-                className="nav-link"
-                href="https://github.com/CypherpunkArmory/UserLAnd/issues"
-              >
-                Support
-              </a>
+              <Link className="nav-link" to="/login">
+                Login
+              </Link>
             </li>
-            <li className="nav-item">
-              <a
-                className="nav-link"
-                aria-label="twitter"
-                href="https://github.com/CypherpunkArmory/UserLAnd"
-              >
-                <FontAwesomeIcon icon={['fab', 'github']} size="lg" />
-              </a>
+            <li className="nav-item mr-3">
+              <Link className="nav-link" to="/signup">
+                Sign up
+              </Link>
             </li>
           </ul>
         </div>

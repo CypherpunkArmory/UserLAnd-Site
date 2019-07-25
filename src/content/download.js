@@ -14,7 +14,7 @@ const Paragraph = ({ children }) => <p>{children}</p>
 
 export default {
   pageTitle: 'Download',
-  pageSubtitle: 'Download the userland client and start having fun.',
+  pageSubtitle: 'Download the UserLAnd client and start having fun.',
   supportedOS: [
     {
       id: 'mac',
@@ -126,7 +126,7 @@ export default {
         },
         alternatives: [
           {
-            name: 'F-droid',
+            name: 'F-Droid',
             url: 'https://f-droid.org/app/tech.ula',
             directDownload: false,
           },
@@ -139,51 +139,28 @@ export default {
       },
       setupSteps: [
         {
-          title: 'Unzip the download',
+          title: 'Install the APK',
           body: [
             {
               component: Paragraph,
               content:
-                'On OSX and Linux you unzip the executable with the following command.  On windows, just double click it.',
-            },
-            { component: Code, content: '$  unzip /path/to/punch.zip' },
-            {
-              component: Paragraph,
-              content:
-                'Note, the actual downloaded filename will be something like punch-linux-amd64.zip',
+                'If you install via Google Play or F-Droid, just click on the install and wait for it to complete.  If you downloaded the APK directly, you need to enable installation from unknown sources and then click on the downloaded APK.  The steps for enabling installing APKs directly can be different per device and per Android version, so you will have to look up how to do this for your device specfically.',
             },
           ],
         },
         {
-          title: 'Provide account info',
+          title: 'Jump On In',
           body: [
             {
               component: Paragraph,
               content:
-                'Running this command will log you into your account and guide you through any additional setup required.',
+                'You are ready. Just click the UserLAnd icon to start it up.',
             },
-            { component: Code, content: '$  ./punch setup' },
             {
               component: props => (
-                <Link className="link link_underline" to="/signup" {...props} />
+                <Link className="link link_underline" to="https://github.com/CypherpunkArmory/UserLAnd/wiki/Getting-Started-in-UserLAnd" {...props} />
               ),
-              content: 'Sign up to create an account.',
-            },
-          ],
-        },
-        {
-          title: 'Time to punch it',
-          body: [
-            {
-              component: Paragraph,
-              content: 'To start a HTTP tunnel on port 80, run this next:',
-            },
-            { component: Code, content: '$  ./punch http 80' },
-            {
-              component: props => (
-                <Link className="link link_underline" to="/docs" {...props} />
-              ),
-              content: 'Check out what else you can do.',
+              content: 'Read the getting started guide if this is your first time.',
             },
           ],
         },
