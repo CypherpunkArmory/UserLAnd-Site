@@ -1,0 +1,73 @@
+.btn {
+  display: inline-block;
+  color: white;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.6rem 1.7rem;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  outline: none;
+
+  &_danger {
+    background-image: linear-gradient(
+      -52deg,
+      #ff8888 0%,
+      #ff6a6a 35%,
+      #fd4f4f 100%
+    );
+  }
+
+  &_primary {
+    background-color: #423d2d;
+  }
+  
+  &_round {
+    border-radius: 6px;
+  }
+
+  &:disabled,
+  &[disabled] {
+    position: relative;
+    cursor: not-allowed;
+
+    &::after {
+      content: '';
+      border-radius: inherit;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #fbfbfb;
+      opacity: 0.8;
+    }
+  }
+
+  &:active {
+    outline: none;
+  }
+
+  &:hover,
+  &:visited {
+    text-decoration: none;
+    color: white;
+    .icon {
+      left: 0.2rem;
+    }
+  }
+}
+
+.icon {
+  $icon-size: 0.3rem;
+  border: solid white;
+  transform: rotate(-45deg);
+  border-width: 0 ($icon-size / 2) ($icon-size / 2) 0;
+  display: inline-block;
+  padding: $icon-size;
+  position: relative;
+  margin-left: 2px;
+  left: 0px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 1, 1);
+}
