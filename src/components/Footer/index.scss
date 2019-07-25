@@ -2,12 +2,15 @@
     background-color: #FDC44A;
     text-align: center;
     padding: 3rem 0 3rem;
+
     &__cta {
         margin-bottom: 1rem;
     }
+
     &__logo {
         margin-bottom: 1.5rem;
     }
+
     &__nav {
         padding: 0;
         justify-content: center;
@@ -18,12 +21,15 @@
             }
         }
     }
+
     &__copy {
         margin-top: 1rem;
         font-weight: 600;
     }
+
     @media screen and (min-width: 992px) {
         padding: 5rem 0 1.5rem;
+        
         &__cta {
             margin-bottom: 4rem;
         }

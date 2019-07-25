@@ -49,12 +49,12 @@
 
     h6 {
       margin: 0;
-      color: #EBEBEB;
+      color: #ebebeb;
       font-weight: 600;
     }
 
     &__shape {
-      fill: #EBEBEB;
+      fill: #ebebeb;
     }
 
     @media screen and (min-width: 510px) {
@@ -62,7 +62,7 @@
       height: 10rem;
     }
   }
-  
+
   &_active {
     .platform__alternatives {
       text-align: center;
@@ -103,7 +103,6 @@
 
 .setup {
   display: block;
-  margin-bottom: 7rem;
 
   &__steps {
     list-style: none;

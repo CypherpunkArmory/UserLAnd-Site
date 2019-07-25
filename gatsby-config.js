@@ -4,7 +4,14 @@ module.exports = {
     description:
       'Get the full power of Linux on your Android. The easiest way to run a Linux distribution or application on Android. Download Now!',
     author: '@userlandtech',
-    menu: [{ name: 'Jobs', route: '/jobs' }],
+    menu: [
+      { name: 'Features', route: '/features' },
+      { name: 'Download', route: '/download' },
+      { name: 'Docs', route: '/docs' },
+      { name: 'Login', route: '/login' },
+      { name: 'Sign up', route: '/signup' },
+      { name: 'Jobs', route: '/jobs' },
+    ],
     siteMaintenance: false,
   },
   plugins: [
@@ -17,6 +24,34 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/content/docs`,
+        name: 'docs',
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-remark',
+      options: {
+        plugins: [
+          {
+            resolve: 'gatsby-remark-smartypants',
+            options: {
+              dashes: 'oldschool',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              maxWidth: 750,
+            },
+          },
+          'gatsby-remark-prismjs',
+        ],
+      },
+    },
+    'gatsby-plugin-layout',
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

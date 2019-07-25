@@ -4,10 +4,10 @@ import './Logo.scss'
 
 import logo from './LogoSVG.svg'
 
-export default function Logo({ siteTitle }) {
+export default function Logo({ siteTitle, className }) {
   return (
     <>
-      <img className="logo" src={logo} alt={siteTitle} />
+      <img className={`logo ${className}`} src={logo} alt={siteTitle} />
     </>
   )
 }

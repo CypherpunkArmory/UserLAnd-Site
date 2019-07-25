@@ -1,0 +1,133 @@
+$text-color: #423d2d;
+$bg-color: #fafafa;
+
+.navbar {
+  z-index: 31;
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+
+  :global(.container) {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 32;
+  }
+
+  .brand {
+    width: 7rem;
+    display: inline-block;
+  }
+
+  .nav {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 1px;
+    opacity: 0.1;
+    overflow-y: auto;
+    transition: height 0.2s ease-in;
+    transition: opacity 0.1s ease-in;
+
+    &__link {
+      padding: 1rem 1rem;
+      display: inline-block;
+      width: 100%;
+      text-align: center;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &_sticky {
+    position: fixed;
+  }
+
+  &_scrolled,
+  &_open {
+    background-color: #ffff;
+  }
+
+  &_scrolled {
+    border-bottom: 1px solid rgb(230, 230, 230);
+
+    :global(.container) {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+
+    & .brand {
+      width: 2.5rem;
+      margin-top: 0.3rem;
+      margin-bottom: 0.3rem;
+    }
+  }
+
+  &_open {
+    .nav {
+      height: 25rem;
+      opacity: 1;
+    }
+  }
+
+  @media screen and (min-width: 769px) {
+    :global(.container) {
+      padding-top: 0;
+      padding-bottom: 0;
+      display: flex;
+    }
+
+    .nav {
+      height: unset;
+      opacity: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+    }
+    &__border {
+      border-bottom: 1px solid rgb(230, 230, 230);
+    }
+  }
+}
+
+.btn {
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  z-index: 70;
+  cursor: pointer;
+
+  &__bars {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__bar {
+    width: 22px;
+    height: 3px;
+    background: $text-color;
+    transition: transform 0.3s ease;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+}

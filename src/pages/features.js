@@ -5,10 +5,9 @@ import styles from '../styles/features.module.scss'
 import content from '../content/features'
 
 import SEO from '../components/seo'
-import Layout from '../components/layout'
 
 const featuresPage = () => (
-  <Layout className="page">
+  <div className="page">
     <SEO title="Userland Features" />
     <div className="container page__header">
       <h2 className="page__title">{content.pageTitle}</h2>
@@ -29,7 +28,7 @@ const featuresPage = () => (
         })}
       </ul>
     </div>
-  </Layout>
+  </div>
 )
 
 export default featuresPage
