@@ -1,4 +1,4 @@
-.btn-google, .btn-apple {
+.btn-google, .btn-apple, .bth-fdroid {
     display: inline-block;
     width: 43vw;
     max-width: 9.5rem;
@@ -6,6 +6,10 @@
 }
 
 .btn-google {
+    margin-right: 0.6rem;
+}
+
+.btn-fdroid {
     margin-right: 0.6rem;
 }
 
