@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import phoneScr from './vertical-screenshot.png'
 import GooglePlay from '../../components/buttons/GooglePlay';
+import FDroid from '../../components/buttons/FDroid';
 import phoneScrFeature from './phone-feature.gif'
 import phoneScrFeatureHorizontal from './phone-feature-horizontal.gif'
 import AppleStore from '../../components/buttons/AppleStore';
@@ -20,6 +21,7 @@ class Home extends Component {
               </p>
               <div className='hero__cta'>
                 <GooglePlay />
+                <FDroid />
                 <AppleStore />
               </div>
             </div>
