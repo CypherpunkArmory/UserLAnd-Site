@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import footerLogo from './LogoHeader.svg';
 import GooglePlay from '../../components/buttons/GooglePlay';
+import FDroid from '../../components/buttons/FDroid';
 import AppleStore from '../../components/buttons/AppleStore';
 import './index.scss';
 
