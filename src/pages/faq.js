@@ -9,7 +9,7 @@ export default class FAQPage extends Component {
   render() {
     return (
       <div className="page">
-        <SEO title="Holepunch FAQ" />
+        <SEO title="FAQ" />
         <div className="container page__header">
           <h2>{content.pageTitle}</h2>
           <p>{content.pageSubtitle}</p>
