@@ -7,10 +7,10 @@ module.exports = {
     menu: [
       { name: 'Features', route: '/features' },
       { name: 'Download', route: '/download' },
+      { name: 'FAQ', route: '/faq' },
       { name: 'Docs', route: '/docs' },
       { name: 'Login', route: '/login' },
       { name: 'Sign up', route: '/signup' },
-      { name: 'Jobs', route: '/jobs' },
     ],
     siteMaintenance: false,
   },

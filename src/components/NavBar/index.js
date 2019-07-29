@@ -75,23 +75,6 @@ class NavBar extends Component {
             </button>
           </div>
           <Nav routes={routes} handlesOnClick={close} location={location}>
-            <li>
-              <a
-                styleName="nav__link"
-                href="https://github.com/CypherpunkArmory/UserLAnd/issues"
-              >
-                Support
-              </a>
-            </li>
-            <li>
-              <a
-                styleName="nav__link"
-                aria-label="twitter"
-                href="https://github.com/CypherpunkArmory/UserLAnd"
-              >
-                <FontAwesomeIcon icon={['fab', 'github']} size="lg" />
-              </a>
-            </li>
           </Nav>
         </div>
       </nav>

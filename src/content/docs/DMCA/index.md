@@ -20,7 +20,7 @@ The designated copyright agent we have to receive infringement claims can be con
 
 By mail:
 
-ORB.HOUSE, LLC  
+UserLAnd Technologies, LLC  
 c/o Copyright Agent  
 4643 S. Ulster St. Suite 1120  
 Denver, CO 80237  
@@ -41,7 +41,7 @@ Your physical or electronic signature.
 
 Please send all DMCA counter-notifications to:  
 
-ORB.HOUSE, LLC  
+UserLAnd Technologies, LLC  
 c/o Copyright Agent  
 4643 S. Ulster St. Suite 1120  
 Denver, CO 80237  

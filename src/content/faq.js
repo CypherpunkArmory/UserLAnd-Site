@@ -5,12 +5,12 @@ export default {
     {
       name: 'What is UserLAnd?',
       value:
-        "UserLAnd is a service that allows you to host your own server locally but share it with the world.  Your server can then be accessed via a public URL or public ip:port pair.",
+        "UserLAnd is the easiest way to run a Linux distribution or application.  You can install and run Linux locally or in the cloud.  Only a few simple steps required to get up and running.",
     },
     {
       name: 'Why should I use UserLAnd?',
       value:
-        "Want security and privacy, then host the server yourself. Want low cost, then host the server yourself. Want maximum flexibility, then host the server yourself. With our low cost, secure tunneling service, you won't run out of reasons or ways to use it.",
+        "Whether you are new to Linux or an experianced developer you will appreciate the simplicity, accessibility and power of UserLAnd. Simplicity: With a few simple steps you will be up and running. Accessibility: UserLAnd supports all the major host operating systems (desktop and mobile). Power: With UserLAnd you can do or build whatever you desire.",
     },
     {
       name: 'How do I contact you?',
