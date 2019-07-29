@@ -1,11 +1,10 @@
 import React from 'react'
-import Layout from '../components/layout'
 import SEO from '../components/seo'
 import LoginForm from '../components/Login/LoginForm'
 
 export default function loginPage() {
   return (
-    <Layout className="page">
+    <div className="page">
       <SEO title="Userland Site" />
       <div className="container page__header">
         <h2 className="page__title">Log In</h2>
@@ -13,6 +12,6 @@ export default function loginPage() {
       <div className="container text-center">
         <LoginForm />
       </div>
-    </Layout>
+    </div>
   )
 }

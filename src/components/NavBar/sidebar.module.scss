@@ -1,0 +1,119 @@
+$text-color: #423d2d;
+$link-color: #fdc44a;
+$bg-color: #fafafa;
+
+.sidebar {
+  position: absolute;
+  background-color: $bg-color;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  padding: 4rem 0 4rem 0;
+  z-index: 30;
+  border-right: 1px solid #eff0f0;
+  overflow-y: scroll;
+  left: -100vw;
+  transition: 0.35s left ease;
+
+  &__btn {
+    position: fixed;
+    right: 2rem;
+    bottom: 2rem;
+    outline: none !important;
+    font-size: 1.5rem;
+    padding: 0.9rem 1rem;
+    line-height: 1;
+    z-index: 90;
+    border: solid 2px $link-color;
+    color: $link-color;
+    border-radius: 10rem;
+    background-color: $bg-color;
+    box-shadow: 0 1px 0 rgba(12, 13, 14, 0.1), 0 1px 6px rgba(59, 64, 69, 0.1);
+  }
+
+  &__brand {
+    margin: auto;
+    margin-bottom: 2rem;
+    width: 5rem;
+    display: block;
+  }
+
+  &__menu {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+
+    li div {
+      display: flex;
+      justify-content: space-between;
+
+      a {
+        flex: 2;
+        padding: 0.7rem 1rem;
+        display: block;
+      }
+    }
+
+    & & {
+      background-color: #f6f8fa;
+      border-top: 1px rgb(230, 230, 230) solid;
+      padding-left: 1rem;
+    }
+
+    &-btn {
+      position: relative;
+      float: right;
+      color: inherit;
+      cursor: pointer;
+      padding: 1rem;
+      background: none;
+      border: none;
+      font-size: 0.9rem;
+      outline: none !important;
+    }
+  }
+
+  &_open {
+    left: 0;
+    z-index: 81;
+
+    .sidebar__btn {
+      color: inherit;
+      background-color: unset;
+      box-shadow: none;
+      border: none;
+      padding: 1rem 0 1rem 1rem;
+      position: absolute;
+      right: 1rem;
+      top: 1rem;
+      bottom: unset;
+    }
+  }
+
+  &_sticky {
+    position: fixed !important;
+  }
+
+  &_open {
+    position: fixed !important;
+    top: 0 !important;
+  }
+
+  @media screen and (min-width: 769px) {
+    padding-top: 0;
+    left: 0;
+    background-color: unset;
+    box-shadow: unset;
+    width: 15rem;
+
+    &__brand,
+    &__btn {
+      display: none;
+    }
+  }
+}
+
+.sticky {
+  position: fixed !important;
+}

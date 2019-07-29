@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { FormGroup, Label, Input, FormFeedback } from 'reactstrap'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons'
 
 import './TextFieldGroup.module.scss'
 
@@ -31,7 +30,12 @@ function TextFieldGroup({
         invalid={!!error}
         className={className}
       />
-      {error && <FormFeedback tooltip><FontAwesomeIcon icon={faExclamationTriangle} />{error}</FormFeedback>}
+      {error && (
+        <FormFeedback tooltip>
+          <FontAwesomeIcon icon={['fa', 'exclamation-triangle']} />
+          {error}
+        </FormFeedback>
+      )}
     </FormGroup>
   )
 }

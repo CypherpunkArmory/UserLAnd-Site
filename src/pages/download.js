@@ -7,7 +7,6 @@ import '../styles/download.module.scss'
 import content from '../content/download'
 import SEO from '../components/seo'
 import Button from '../components/Button'
-import Layout from '../components/layout'
 
 class downloadPage extends Component {
   setupRef = React.createRef()
@@ -47,7 +46,7 @@ class downloadPage extends Component {
     const { selectedOs } = this.state
 
     return (
-      <Layout className="page">
+      <div className="page">
         <SEO title="Userland Download" />
         <div className="container page__header">
           <h2 className="page__title">{content.pageTitle}</h2>
@@ -142,7 +141,7 @@ class downloadPage extends Component {
             </ol>
           </div>
         )}
-      </Layout>
+      </div>
     )
   }
 }

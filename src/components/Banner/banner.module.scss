@@ -1,0 +1,13 @@
+.banner {
+  position: relative;
+  
+  &__maintenance {
+    text-align: center;
+    background-color: #FDC44A;
+    color: white;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+}

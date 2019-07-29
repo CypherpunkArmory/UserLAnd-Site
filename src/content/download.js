@@ -158,9 +158,16 @@ export default {
             },
             {
               component: props => (
-                <Link className="link link_underline" to="https://github.com/CypherpunkArmory/UserLAnd/wiki/Getting-Started-in-UserLAnd" {...props} />
+                <a
+                  className="link link_underline"
+                  href="https://github.com/CypherpunkArmory/UserLAnd/wiki/Getting-Started-in-UserLAnd"
+                  {...props}
+                >
+                  {props.children}
+                </a>
               ),
-              content: 'Read the getting started guide if this is your first time.',
+              content:
+                'Read the getting started guide if this is your first time.',
             },
           ],
         },

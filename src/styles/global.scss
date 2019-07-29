@@ -1,0 +1,38 @@
+/* Fonts */
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900');
+@import url('https://fonts.googleapis.com/css?family=Signika:700');
+
+body {
+  font-family: 'Maven Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color: #423d2d;
+  font-size: 1.2rem;
+  line-height: 1.666;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Signika', 'Maven Pro', sans-serif;
+  color: inherit;
+}
+
+a,
+a:visited,
+a:hover,
+nav a:hover,
+nav a.active,
+aside a:hover,
+aside a.active {
+  color: inherit;
+  font-weight: bold;
+}

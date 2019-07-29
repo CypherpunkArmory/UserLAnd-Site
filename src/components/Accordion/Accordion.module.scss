@@ -1,0 +1,51 @@
+.accordion {
+  $x-padding: 0.9rem;
+  $y-padding: 0.9rem;
+  max-width: 55rem;
+  margin: auto;
+  margin-bottom: 2rem;
+  border-radius: 1px;
+  text-align: left;
+
+  &__label {
+    text-align: left;
+    position: relative;
+    margin-bottom: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    float: left;
+  }
+
+  &__toggle {
+    display: flex;
+    cursor: pointer;
+    padding: $y-padding $x-padding;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    outline: none;
+    justify-content: space-between;
+    align-items: center;
+
+    &:active,
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+
+  &__body {
+    padding: 0 $x-padding $y-padding $x-padding;
+    position: relative;
+  }
+
+  @media screen and (min-width: 769px) {
+    $x-padding: 2.7rem;
+
+    &__toggle,
+    &__body {
+      padding-left: $x-padding;
+      padding-right: $x-padding;
+    }
+  }
+}

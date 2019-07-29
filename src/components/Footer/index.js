@@ -11,7 +11,7 @@ import AppleStore from '../Button/AppleStore'
 class Footer extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer" id="footer">
         <div className="container">
           <div className="row">
             <div className="footer__logo col-12">
@@ -21,11 +21,11 @@ class Footer extends Component {
               <GooglePlay />
               <AppleStore />
             </div>
-            <nav className="footer__nav navbar col-12 offset-lg-2 col-lg-3 order-md-2">
+            <nav className="navbar footer__nav col-12 offset-lg-2 col-lg-3 order-md-2">
               <ul className="flex-row navbar-nav">
                 <li className="nav-item">
                   <Link className="nav-link" to="/privacy">
-                    privacy policy
+                    Privacy
                   </Link>
                 </li>
                 <li className="nav-item">
@@ -33,9 +33,19 @@ class Footer extends Component {
                     EULA
                   </Link>
                 </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/tos">
+                    TOS
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/dmca">
+                    DMCA
+                  </Link>
+                </li>
               </ul>
             </nav>
-            <nav className="footer__nav navbar col-12 col-lg-3 order-md-3">
+            <nav className="navbar footer__nav col-12 col-lg-3 order-md-3">
               <ul className="flex-row navbar-nav">
                 <li className="nav-item">
                   <a
