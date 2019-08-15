@@ -1,1 +1,1 @@
-export const ulacliVersion = '0.0.3';
+export const ulacliVersion = '0.0.4';
