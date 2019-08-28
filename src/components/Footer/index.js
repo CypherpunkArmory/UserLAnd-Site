@@ -65,15 +65,6 @@ class Footer extends Component {
                     <FontAwesomeIcon icon={['fab', 'twitter']} size="lg" />
                   </a>
                 </li>
-                <li className="nav-item">
-                  <a
-                    className="nav-link"
-                    aria-label="slack"
-                    href="https://communityinviter.com/apps/userlandtech/userland"
-                  >
-                    <FontAwesomeIcon icon={['fab', 'slack']} size="lg" />
-                  </a>
-                </li>
               </ul>
             </nav>
             <small className="footer__copy col-12 col-lg-4 order-md-1">
