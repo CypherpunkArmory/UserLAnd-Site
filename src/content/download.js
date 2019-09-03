@@ -3,6 +3,8 @@ import { Link } from 'gatsby'
 
 import '../styles/download.module.scss'
 
+import * as versions from '../content/version.js'
+
 // import * as versions from '../content/version.js'
 
 const Code = ({ children }) => (
@@ -40,10 +42,50 @@ export default {
         </svg>
       ),
       downloads: {
-        default: {},
-        alternatives: [],
+        default: {
+          name: '64-bit',
+          url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-darwin-amd64.zip',
+          directDownload: true,
+        },
+        alternatives: [
+          {
+            name: '64-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-darwin-amd64.zip',
+            directDownload: true,
+          },
+          {
+            name: '32-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-darwin-386.zip',
+            directDownload: true,
+          },
+        ],
       },
-      setupSteps: [],
+      setupSteps: [
+        {
+          title: 'Unzip the download',
+          body: [
+            { component: Paragraph, content: "On OSX and Linux you unzip the executable with the following command.  On windows, just double click it." },
+            { component: Code, content: "$  unzip /path/to/ulacli.zip" },
+            { component: Paragraph, content: "Note, the actual downloaded filename will be something like ulacli-linux-amd64.zip" },
+          ],
+        },
+        {
+          title: 'Provide account info',
+          body: [
+            { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
+            { component: Code, content: "$  ./ulacli setup" },
+            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+          ]
+        },
+        {
+          title: 'Time to dive in',
+          body: [
+            { component: Paragraph, content: "To start a cloud session, run this next:" },
+            { component: Code, content: "$  ./ulacli start" },
+            { component: (props) => <Link to="/docs" {...props}/>, content: "Check out what else you can do." },
+          ]
+        },
+      ],
     },
     {
       id: 'win',
@@ -77,10 +119,50 @@ export default {
         </svg>
       ),
       downloads: {
-        default: {},
-        alternatives: [],
+        default: {
+          name: '64-bit',
+          url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-windows-amd64.zip',
+          directDownload: true,
+        },
+        alternatives: [
+          {
+            name: '64-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-windows-amd64.zip',
+            directDownload: true,
+          },
+          {
+            name: '32-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-windows-386.zip',
+            directDownload: true,
+          },
+        ],
       },
-      setupSteps: [],
+      setupSteps: [
+        {
+          title: 'Unzip the download',
+          body: [
+            { component: Paragraph, content: "On OSX and Linux you unzip the executable with the following command.  On windows, just double click it." },
+            { component: Code, content: "$  unzip /path/to/ulacli.zip" },
+            { component: Paragraph, content: "Note, the actual downloaded filename will be something like ulacli-linux-amd64.zip" },
+          ],
+        },
+        {
+          title: 'Provide account info',
+          body: [
+            { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
+            { component: Code, content: "$  ./ulacli setup" },
+            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+          ]
+        },
+        {
+          title: 'Time to dive in',
+          body: [
+            { component: Paragraph, content: "To start a cloud session, run this next:" },
+            { component: Code, content: "$  ./ulacli start" },
+            { component: (props) => <Link to="/docs" {...props}/>, content: "Check out what else you can do." },
+          ]
+        },
+      ],
     },
     {
       id: 'linux',
@@ -99,10 +181,60 @@ export default {
         </svg>
       ),
       downloads: {
-        default: {},
-        alternatives: [],
+        default: {
+          name: '64-bit',
+          url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-linux-amd64.zip',
+          directDownload: true,
+        },
+        alternatives: [
+          {
+            name: '64-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-linux-amd64.zip',
+            directDownload: true,
+          },
+          {
+            name: '32-bit',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-linux-386.zip',
+            directDownload: true,
+          },
+          {
+            name: 'ARM64',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-linux-arm64.zip',
+            directDownload: true,
+          },
+          {
+            name: 'ARM',
+            url: 'https://github.com/CypherpunkArmory/ula-cli/releases/download/' + versions.ulacliVersion + '/ulacli-linux-armv5.zip',
+            directDownload: true,
+          },
+        ],
       },
-      setupSteps: [],
+      setupSteps: [
+        {
+          title: 'Unzip the download',
+          body: [
+            { component: Paragraph, content: "On OSX and Linux you unzip the executable with the following command.  On windows, just double click it." },
+            { component: Code, content: "$  unzip /path/to/ulacli.zip" },
+            { component: Paragraph, content: "Note, the actual downloaded filename will be something like ulacli-linux-amd64.zip" },
+          ],
+        },
+        {
+          title: 'Provide account info',
+          body: [
+            { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
+            { component: Code, content: "$  ./ulacli setup" },
+            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+          ]
+        },
+        {
+          title: 'Time to dive in',
+          body: [
+            { component: Paragraph, content: "To start a cloud session, run this next:" },
+            { component: Code, content: "$  ./ulacli start" },
+            { component: (props) => <Link to="/docs" {...props}/>, content: "Check out what else you can do." },
+          ]
+        },
+      ],
     },
     {
       id: 'android',
@@ -125,6 +257,11 @@ export default {
           directDownload: false,
         },
         alternatives: [
+          {
+            name: 'Google Play',
+            url: 'https://play.google.com/store/apps/details?id=tech.ula',
+            directDownload: false,
+          },
           {
             name: 'F-Droid',
             url: 'https://f-droid.org/app/tech.ula',
