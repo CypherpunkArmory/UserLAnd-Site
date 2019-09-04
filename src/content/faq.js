@@ -10,7 +10,7 @@ export default {
     {
       name: 'Why should I use UserLAnd?',
       value:
-        "Whether you are new to Linux or an experianced developer you will appreciate the simplicity, accessibility and power of UserLAnd. Simplicity: With a few simple steps you will be up and running. Accessibility: UserLAnd supports all the major host operating systems (desktop and mobile). Power: With UserLAnd you can do or build whatever you desire.",
+        "Whether you are new to Linux or an experienced developer you will appreciate the simplicity, accessibility and power of UserLAnd. Simplicity: With a few simple steps you will be up and running. Accessibility: UserLAnd supports all the major host operating systems (desktop and mobile). Power: With UserLAnd you can do or build whatever you desire.",
     },
     {
       name: 'How do I contact you?',
