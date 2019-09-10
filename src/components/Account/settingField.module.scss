@@ -1,0 +1,54 @@
+$main-color: #ffd476;
+
+.field__link {
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    padding: 1rem 0;
+
+    &:hover span:last-child {
+        color: $main-color;
+    }
+
+    & span {
+        flex: 50%;
+    }
+
+    & span:first-child {
+        flex: 30%;
+        font-weight: 600;
+    }
+
+    & span:last-child {
+        flex: 20%;
+        text-align: right;
+    }
+}
+
+.field {
+    position: relative;
+    margin-bottom: 2rem;
+
+    &_open {
+        max-width: 21rem;
+    }
+
+    &__close {
+        padding: 0.4rem 0.9rem;
+        position: absolute;
+        top: 0;
+        right: -3rem;
+        cursor: pointer;
+    }
+
+    &__editor {
+        position: relative;
+    }
+
+    &__error {
+        color: #f55555;
+        display: block;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { Link } from 'gatsby'
 import classnames from 'classnames'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import './navbar.module.scss'
 
@@ -11,6 +11,9 @@ import Collapse from './Collapse'
 import Sticky from './Sticky'
 import Nav from './Nav'
 import MaintenanceBanner from '../Banner/Maintenance'
+
+import { getIsLoggedIn } from '../../redux/ducks/auth/selectors'
+import { performLogout } from '../../redux/ducks/auth/actions'
 
 class NavBar extends Component {
   static propTypes = {
@@ -39,8 +42,14 @@ class NavBar extends Component {
       border,
       siteMaintenance,
     } = this.props
-    const { location } = this.props
+    const { location, isLoggedIn, logout } = this.props
     let { routes } = this.props
+
+    routes = isLoggedIn
+      ? routes
+          .filter(item => ['Login'].indexOf(item.name) === -1)
+          .filter(item => ['Sign up'].indexOf(item.name) === -1)
+      : routes
 
     return (
       <nav
@@ -75,6 +84,32 @@ class NavBar extends Component {
             </button>
           </div>
           <Nav routes={routes} handlesOnClick={close} location={location}>
+            {isLoggedIn && (
+              <>
+                <li>
+                  <Link
+                    styleName="nav__link"
+                    to="/account/overview"
+                    onClick={close}
+                  >
+                    My Account
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    tag={Link}
+                    to="/"
+                    styleName="nav__link"
+                    onClick={() => {
+                      close()
+                      logout()
+                    }}
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </>
+            )}
           </Nav>
         </div>
       </nav>
@@ -82,4 +117,21 @@ class NavBar extends Component {
   }
 }
 
-export default Sticky(Collapse(NavBar))
+const mapStateToProps = state => {
+  return {
+    isLoggedIn: getIsLoggedIn(state),
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    logout: () => {
+      dispatch(performLogout.request())
+    },
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Sticky(Collapse(NavBar)))
