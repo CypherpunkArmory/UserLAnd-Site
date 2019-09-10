@@ -6,6 +6,8 @@
 
 // You can delete this file if you're not using it
 
+import wrapWithProvider from './wrap-with-provider'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   fab,
@@ -22,9 +24,6 @@ import {
   faTimes,
   faBook,
 } from '@fortawesome/free-solid-svg-icons'
-import wrapWithProvider from './wrap-with-provider'
-
-export const wrapRootElement = wrapWithProvider
 
 library.add(
   fab,
@@ -39,3 +38,5 @@ library.add(
   faTwitter,
   faSlack
 )
+
+export const wrapRootElement = wrapWithProvider
