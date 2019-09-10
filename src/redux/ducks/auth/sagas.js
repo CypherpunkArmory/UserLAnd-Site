@@ -1,5 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+import { call, put, takeEvery, delay } from 'redux-saga/effects'
 import { navigate } from 'gatsby'
 import types from './types'
 
