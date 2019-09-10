@@ -1,0 +1,236 @@
+$main-color: #ffd476;
+
+.api-key {
+  padding: 0;
+  margin-bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__code {
+    position: relative;
+    cursor: pointer;
+    border: #ffe6b0 dashed 2px;
+    width: 40rem;
+    max-width: 100%;
+    padding: 1rem 3.3rem 1rem 1rem;
+    overflow-x: scroll;
+    display: block;
+    transition: 0.1s ease all;
+    margin-bottom: 1.5rem;
+
+    input {
+      border: none;
+      outline: none;
+      width: 100%;
+      background: transparent;
+    }
+
+    &_active {
+      background: #ffe6b0;
+    }
+  }
+
+  &__controls {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 6rem;
+    right: 0;
+    top: 0;
+
+    button {
+      padding: 0.9rem 1rem;
+      border: none;
+      background: none;
+      outline: none;
+      font-weight: 700;
+      color: $main-color;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__button {
+    border: 2px $main-color solid;
+    padding: 0.6rem 0.8rem;
+    outline: none;
+    border-radius: 20rem;
+    font-weight: 700;
+    color: $main-color;
+    transition: 0.15s ease all;
+    cursor: pointer;
+    max-width: 10rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    & > svg {
+      margin-right: 0.45rem;
+    }
+
+    &:hover {
+      background-color: $main-color;
+      color: white;
+    }
+
+    &_danger {
+      border-color: #f55555;
+      color: #f55555;
+      &:hover {
+        background-color: #f55555;
+      }
+    }
+  }
+
+  &__copy {
+    border: 2px $main-color solid;
+    padding: 0.9rem 1.4rem;
+    outline: none;
+    border-radius: 20rem;
+    font-weight: 700;
+    color: $main-color;
+    transition: 0.15s ease all;
+    cursor: pointer;
+    max-width: 12rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    & > svg {
+      margin-right: 0.45rem;
+    }
+
+    &:hover {
+      background-color: $main-color;
+      color: white;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+
+  @media screen and (min-width: 769px) {
+    flex-direction: row;
+  }
+}
+
+.pannel {
+  display: block;
+
+  &__body {
+    margin-top: 1rem;
+
+    hr {
+      border-top: 1px solid rgba(174, 174, 174, 0.1);
+    }
+  }
+
+  .delete-btn {
+    border: 0;
+    background: none;
+    display: block;
+    margin: auto;
+    outline: none;
+    color: #fe5c5c;
+    font-weight: 500;
+    font-size: 1.1rem;
+    &:hover {
+      outline: none;
+    }
+  }
+
+  .text_error {
+    color: #f55555;
+  }
+}
+
+.nav {
+  list-style: none;
+  width: 25rem;
+  padding: 0;
+  margin: 0 0 3rem;
+
+  li:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  a {
+    padding: 1rem 1rem 1rem 0;
+  }
+}
+
+.plan-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-between;
+  max-width: 40rem;
+
+  .plan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10.5rem;
+    height: 10.5rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    border-radius: 1.3rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: rgba(217, 243, 255, 0.25);
+    text-align: center;
+
+    &_active,
+    &:hover {
+      background: rgba(255, 212, 118, 0.25);
+    }
+
+    &_disabled {
+      position: relative;
+
+      &::after {
+        position: absolute;
+        border-radius: 1.3rem;
+        content: '';
+        width: 100%;
+        background: #f8f8f8c4 !important;
+        height: 100%;
+      }
+
+      &:hover {
+        cursor: not-allowed;
+        background: #f8f8f8c4 !important;
+      }
+    }
+
+    @media screen and (min-width: 769px) {
+      width: 11.5rem;
+      height: 11.5rem;
+    }
+  }
+}
+
+.billing {
+  display: block;
+  &-history {
+    :global(tbody tr:nth-of-type(odd)) {
+      background-color: rgba(255, 212, 118, 0.14);
+    }
+
+    thead {
+      border-bottom: 2px rgba(255, 212, 118, 0.208) solid;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'gatsby'
 import { Form } from 'reactstrap'
 
@@ -6,6 +7,14 @@ import './signup.module.scss'
 
 import Button from '../Button'
 import TextFieldGroup from '../TextFieldGroup'
+
+import { validateInput } from '../../utils/validation'
+import { performRegister } from '../../redux/ducks/account/actions'
+import {
+  getIsLoggedIn,
+  getError,
+  accountIsLoading,
+} from '../../redux/ducks/account/selectors'
 
 class SignupForm extends Component {
   submitedTimer = null
@@ -17,6 +26,18 @@ class SignupForm extends Component {
     submited: false,
   }
 
+  componentWillUnmount() {
+    clearInterval(this.submitedTimer)
+  }
+
+  isValid = () => {
+    const { errors, isValid } = validateInput(this.state)
+    this.setState({
+      errors,
+    })
+    return isValid
+  }
+
   handleUpdate = event => {
     this.setState({
       [event.target.name]: event.target.value,
@@ -26,18 +47,22 @@ class SignupForm extends Component {
   handleSubmit = event => {
     event.preventDefault()
 
-    this.setState({
-      submited: true,
-    })
-    this.submitedTimer = setTimeout(() => {
+    if (this.isValid()) {
+      this.props.signup(this.state.email, this.state.password)
       this.setState({
-        submited: false,
+        submited: true,
       })
-    }, 4400)
+      this.submitedTimer = setTimeout(() => {
+        this.setState({
+          submited: false,
+        })
+      }, 4400)
+    }
   }
 
   render() {
-    const { errors } = this.state
+    const { errors, submited } = this.state
+    const { signupError, isLoading } = this.props
 
     return (
       <Form
@@ -67,9 +92,11 @@ class SignupForm extends Component {
           styleName="form__input"
           error={errors.password}
         />
-
-        <Button styleName="form__btn" disabled round>
-          Coming Soon
+        {signupError && submited && (
+          <span styleName="form__alert">{signupError.attributes.detail}</span>
+        )}
+        <Button styleName="form__btn" disabled={isLoading} round>
+          Register
         </Button>
         <span styleName="form__login">
           Already have an account? <Link to="/login">Login</Link>
@@ -83,4 +110,23 @@ class SignupForm extends Component {
   }
 }
 
-export default SignupForm
+const mapStateToProps = state => {
+  return {
+    signupError: getError(state),
+    isLoading: accountIsLoading(state),
+    isLoggedIn: getIsLoggedIn(state),
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    signup: (email, password) => {
+      dispatch(performRegister.request(email, password))
+    },
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SignupForm)

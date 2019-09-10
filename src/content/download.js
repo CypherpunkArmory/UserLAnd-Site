@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'gatsby'
+// import { Link } from 'gatsby'
 
 import '../styles/download.module.scss'
 
@@ -7,11 +7,11 @@ import * as versions from '../content/version.js'
 
 // import * as versions from '../content/version.js'
 
-const Code = ({ children }) => (
-  <div styleName="code">
-    <code>{children}</code>
-  </div>
-)
+// const Code = ({ children }) => (
+//   <div styleName="code">
+//     <code>{children}</code>
+//   </div>
+// )
 const Paragraph = ({ children }) => <p>{children}</p>
 
 export default {

@@ -1,0 +1,116 @@
+.wrapper {
+  padding-left: 0em;
+  padding-right: 0em;
+  margin: auto;
+  display: block;
+  width: 25px;
+}
+
+.cssload-loader {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin: 0.5em;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  vertical-align: middle;
+
+  &,
+  &:after,
+  &:before {
+    animation: 0.576s infinite ease-in-out;
+  }
+
+  &:after,
+  &:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #e25c65;
+    transform: scale(0);
+    animation: cssload-animation 0.865s infinite ease-in-out;
+  }
+
+  &.white:after,
+  &.white:before {
+    background-color: #fff;
+  }
+}
+
+@keyframes cssload-animation {
+  0% {
+    transform: translateX(-100%) scale(0);
+  }
+  50% {
+    transform: translateX(0%) scale(1);
+  }
+  100% {
+    transform: translateX(100%) scale(0);
+  }
+}
+
+// Page Spinner
+.page__wrapper {
+  height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.logo {
+  width: 5rem;
+  height: auto;
+  margin-bottom: 3rem;
+}
+
+.rect {
+  height: 1.5rem;
+  width: 0.7rem;
+  background: #ffe6b0;
+  margin: 0 0.5rem;
+  display: inline-block;
+
+  &__one {
+    opacity: 1;
+    animation: door 0.9s infinite;
+    animation-timing-function: linear;
+  }
+
+  &__two {
+    opacity: 0.8;
+    animation: door 0.9s infinite;
+    animation-delay: 0.08s;
+    animation-timing-function: linear;
+  }
+
+  &__three {
+    opacity: 0.5;
+    animation: door 0.9s infinite;
+    animation-delay: 0.15s;
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes door {
+  0% {
+    transform: scale(1.5);
+    //transform: rotatey(60deg);
+  }
+
+  30% {
+    //transform: scale(1.2);
+    //transform: scale(0.9);
+    //transform: rotatey(0deg);
+  }
+
+  100% {
+    transform: scale(1);
+    //transform: rotatey(30deg);
+  }
+}

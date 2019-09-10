@@ -8,6 +8,16 @@
 
 const path = require('path')
 
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+
+  if (page.path.match(/^\/account\/?$/)) {
+    page.matchPath = '/account/*'
+
+    createPage(page)
+  }
+}
+
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const docLayout = path.resolve(`src/layouts/docs.js`)
