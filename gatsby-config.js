@@ -10,7 +10,6 @@ module.exports = {
       { name: 'FAQ', route: '/faq' },
       { name: 'Docs', route: '/docs' },
       { name: 'Login', route: '/login' },
-      { name: 'Sign up', route: '/signup' },
     ],
     siteMaintenance: false,
   },
@@ -60,8 +59,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#FDC44A`,
+        theme_color: `#FDC44A`,
         display: `minimal-ui`,
         icon: `src/images/userland-icon.png`, // This path is relative to the root of the site.
       },

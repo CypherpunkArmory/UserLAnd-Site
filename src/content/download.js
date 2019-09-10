@@ -1,17 +1,11 @@
 import React from 'react'
-// import { Link } from 'gatsby'
+import { Link } from 'gatsby'
 
 import '../styles/download.module.scss'
 
 import * as versions from '../content/version.js'
 
-// import * as versions from '../content/version.js'
-
-// const Code = ({ children }) => (
-//   <div styleName="code">
-//     <code>{children}</code>
-//   </div>
-// )
+const Code = ({children}) => <div styleName="code"><code>{children}</code></div>
 const Paragraph = ({ children }) => <p>{children}</p>
 
 export default {
@@ -74,7 +68,7 @@ export default {
           body: [
             { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
             { component: Code, content: "$  ./ulacli setup" },
-            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+            { component: (props) => <Link to="/" {...props}/>, content: "Sign up to create an account." },
           ]
         },
         {
@@ -151,7 +145,7 @@ export default {
           body: [
             { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
             { component: Code, content: "$  ./ulacli setup" },
-            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+            { component: (props) => <Link to="/" {...props}/>, content: "Sign up to create an account." },
           ]
         },
         {
@@ -223,7 +217,7 @@ export default {
           body: [
             { component: Paragraph, content: "Running this command will log you into your account and guide you through any additional setup required." },
             { component: Code, content: "$  ./ulacli setup" },
-            { component: (props) => <Link to="/signup" {...props}/>, content: "Sign up to create an account." },
+            { component: (props) => <Link to="/" {...props}/>, content: "Sign up to create an account." },
           ]
         },
         {
