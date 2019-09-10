@@ -7,7 +7,35 @@
 // You can delete this file if you're not using it
 
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab, faGithub, faTwitter, faSlack } from '@fortawesome/free-brands-svg-icons'
-import { fas, faCheckSquare, faChevronDown, faChevronUp, faExclamationTriangle, faTimes, faBook } from '@fortawesome/free-solid-svg-icons'
+import {
+  fab,
+  faGithub,
+  faTwitter,
+  faSlack,
+} from '@fortawesome/free-brands-svg-icons'
+import {
+  fas,
+  faCheckSquare,
+  faChevronDown,
+  faChevronUp,
+  faExclamationTriangle,
+  faTimes,
+  faBook,
+} from '@fortawesome/free-solid-svg-icons'
+import wrapWithProvider from './wrap-with-provider'
 
-library.add(fab, fas, faCheckSquare, faChevronDown, faChevronUp, faExclamationTriangle, faTimes, faBook, faGithub, faTwitter, faSlack)
+export const wrapRootElement = wrapWithProvider
+
+library.add(
+  fab,
+  fas,
+  faCheckSquare,
+  faChevronDown,
+  faChevronUp,
+  faExclamationTriangle,
+  faTimes,
+  faBook,
+  faGithub,
+  faTwitter,
+  faSlack
+)
