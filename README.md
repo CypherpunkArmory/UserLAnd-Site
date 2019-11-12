@@ -23,6 +23,21 @@ You will also see any lint errors in the console.
 
 Gatsby will perform an optimized production build for your site, generating static HTML and per-route JavaScript code bundles.
 
+### Deploying
+
+If you want to deploy to _production_ you should just merge this to master and let CI take care of it.
+
+To deploy to a "pushbutton" environment follow these instructions.
+
+1. Install go-task: `curl -sL https://taskfile.dev/install.sh | sh`
+2. Prepare the environment: `task prepare WORKSPACE=<workspace name>`
+3. For your next deploy you can just do `task deploy WORKSPACE=<workspace name>`
+4. When you are done: `task destroy WORKSPACE=<workspace name>`
+
+View your deploy at `<workspace name>.testpunch.io`
+
+The workspace name should be a single short, memorable word.
+
 ## 🧐 What's inside?
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.

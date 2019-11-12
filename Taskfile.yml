@@ -1,0 +1,72 @@
+---
+version: '2'
+
+tasks:
+  install-deps:
+    prefix: 'install deps'
+    desc: 'Install dependency tools'
+    status:
+      - test -x $(which aws)
+      - test -x $(which terraform)
+    cmds:
+      - curl https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_{{OS}}_{{ARCH}}.zip > /tmp/terraform_0.11.14.zip
+      - unzip /tmp/terraform_0.11.14.zip
+      - mv /tmp/terraform /usr/local/bin/terraform
+      - pip3 install awscli --upgrade --user
+
+  prepare:
+    prefix: 'deploy'
+    desc: 'Prepare to Deploy UserLAnd FE'
+    dir: deploy
+    deps:
+      - install-deps
+    vars:
+      WORKSPACE: '{{ .WORKSPACE }}'
+    preconditions:
+      - sh: "[ '{{.WORKSPACE}}' != '<no value>' ]"
+        msg: "WORKSPACE must be set"
+    cmds:
+      - |
+        terraform workspace list | grep "{{.WORKSPACE}}"
+        if [ $? -eq 0 ]; then
+          terraform workspace select "{{.WORKSPACE}}";
+        else
+          terraform workspace new "{{.WORKSPACE}}";
+        fi
+      - terraform plan -out planfile
+      - terraform apply planfile
+      - task: deploy
+        vars:
+            WORKSPACE: "{{.WORKSPACE}}"
+
+  destroy:
+    prefix: 'deploy'
+    desc: 'Prepare to Deploy UserLAnd FE'
+    dir: deploy
+    deps:
+      - install-deps
+    vars:
+      WORKSPACE: '{{ .WORKSPACE }}'
+    preconditions:
+      - sh: "[ '{{.WORKSPACE}}' != '<no value>' ]"
+        msg: "WORKSPACE must be set"
+    cmds:
+      - terraform workspace select "{{.WORKSPACE}}"
+      - terraform destroy
+      - terraform workspace select default
+      - terraform workspace delete "{{.WORKSPACE}}"
+
+  deploy:
+    prefix: 'deploy'
+    desc: 'Deploy UserLAnd FE'
+    vars:
+      WORKSPACE: '{{ .WORKSPACE }}'
+    preconditions:
+      - sh: "[ '{{.WORKSPACE}}' != '<no value>' ]"
+        msg: "WORKSPACE must be set"
+    cmds:
+      - npm run-script build
+      - aws s3 sync ./public s3://{{.WORKSPACE}}.testpunch.io/
+
+
+
