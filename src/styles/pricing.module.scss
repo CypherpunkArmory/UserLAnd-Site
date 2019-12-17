@@ -1,0 +1,55 @@
+.yearly-widget {
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.5rem;
+  margin-bottom: 1.5rem;
+
+  label {
+    margin: 0 1rem;
+  }
+
+  &__highlight {
+    color: #29bbfc;
+    font-weight: 600;
+    position: relative;
+  }
+
+  &__badge {
+    $arrow-size: 8px;
+    position: absolute;
+    right: 1rem;
+    top: -2.5rem;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+    color: white;
+    font-weight: 600;
+    background-color: #71cef9;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-right: $arrow-size solid transparent;
+      border-left: $arrow-size solid transparent;
+      border-top: $arrow-size solid #71cef9;
+      left: 5px;
+      bottom: -5px;
+    }
+
+    @media screen and (min-width: 600px) {
+      right: -4.7rem;
+      top: unset;
+
+      &::before {
+        left: -13px;
+        bottom: unset;
+        border-top: $arrow-size solid transparent;
+        border-bottom: $arrow-size solid transparent;
+        border-right: $arrow-size solid #71cef9;
+      }
+    }
+  }
+}

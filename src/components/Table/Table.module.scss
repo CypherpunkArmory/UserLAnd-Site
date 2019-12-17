@@ -1,0 +1,206 @@
+$border-color: #dddddd;
+$border-size: 1px;
+$corner-radius: 15px;
+
+.table {
+  width: 100%;
+  text-align: center;
+  table-layout: fixed;
+  background-color: white;
+}
+
+.pricing-table {
+  margin-bottom: 7rem;
+  position: relative;
+
+  .plan {
+    position: relative;
+    padding: 1rem 0.5rem;
+    vertical-align: baseline;
+
+    &__title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 0;
+    }
+
+    &__price {
+      color: #35bcf9;
+      font-size: 2.3rem;
+      margin-bottom: 0.5rem;
+
+      span {
+        font-size: 1rem;
+        font-weight: 500;
+      }
+    }
+
+    &__discount {
+      span {
+        margin-bottom: 0.2rem;
+        font-size: 0.8rem;
+        display: block;
+        color: #acb8bd;
+        text-decoration: line-through;
+        margin-right: 0.3rem;
+      }
+    }
+
+    button {
+      text-transform: capitalize;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    &:after {
+      content: '';
+      height: 100%;
+      width: calc(100% + 1px);
+      left: 0;
+      top: 0;
+      border-color: $border-color;
+      border-style: solid;
+      border-width: $border-size $border-size 0 $border-size;
+      position: absolute;
+      background-color: inherit;
+      pointer-events: none;
+    }
+
+    &:nth-child(2):after {
+      border-top-left-radius: $corner-radius;
+    }
+
+    &:last-child:after {
+      border-top-right-radius: $corner-radius;
+    }
+  }
+
+  .feature {
+    position: relative;
+    $dark-blue: #35bcf9;
+
+    &__name {
+      text-align: left;
+      background-color: $dark-blue;
+      color: white;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 0.7rem 1rem;
+      position: relative;
+    }
+
+    &__value {
+      position: relative;
+      color: $dark-blue;
+      font-weight: bold;
+      font-size: 1.3rem;
+      border-left: $border-size solid $border-color;
+      border-right: $border-size solid $border-color;
+
+      svg {
+        font-size: 1.15rem;
+      }
+    }
+
+    &:nth-child(odd) .feature__name {
+      background-color: #3eb0e4;
+    }
+
+    &:first-child > .feature__name:before,
+    &:last-child > .feature__name:after {
+      content: '';
+      height: 1.5rem;
+      width: 100%;
+      background-color: $dark-blue;
+      position: absolute;
+      left: 0;
+    }
+
+    &:first-child > .feature__name:first-child:before {
+      top: -1.5rem;
+      border-top-left-radius: $corner-radius;
+    }
+
+    &:last-child > .feature__name:first-child:after {
+      bottom: -1.5rem;
+      border-bottom-left-radius: $corner-radius;
+    }
+
+    &:last-child > .feature__value:after {
+      content: '';
+      height: calc(100% + 2.4rem);
+      width: calc(100% + 1px);
+      background-color: inherit;
+      position: absolute;
+      left: 0;
+      top: 0;
+      border-color: $border-color;
+      border-style: solid;
+      border-width: 0 $border-size $border-size 0;
+    }
+
+    &:last-child > td:nth-child(2) {
+      border: none;
+
+      &:after {
+        border-left: $border-color $border-size solid;
+        border-bottom-left-radius: $corner-radius;
+      }
+    }
+
+    &:last-child > td:last-child {
+      border: none;
+
+      &:after {
+        border-bottom-right-radius: $corner-radius;
+      }
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    margin-bottom: 9rem;
+    .plan__price span {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    button {
+      width: 80%;
+      max-width: 9rem;
+    }
+    .feature__name {
+      font-size: 1rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .plan__price {
+      font-size: 2.9rem;
+      span {
+        font-size: 1.4rem;
+        display: inline;
+      }
+    }
+    .plan__title {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.thead {
+  position: relative;
+}
+
+.tbody {
+  padding: 0.7rem 0;
+
+  tr {
+    position: relative;
+
+    &:nth-child(odd) {
+      background-color: #e8f8ff;
+    }
+  }
+}
