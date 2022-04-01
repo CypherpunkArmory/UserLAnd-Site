@@ -25,7 +25,7 @@ $corner-radius: 15px;
     }
 
     &__price {
-      color: #35bcf9;
+      color: #FDC44A;
       font-size: 2.3rem;
       margin-bottom: 0.5rem;
 
@@ -78,11 +78,11 @@ $corner-radius: 15px;
 
   .feature {
     position: relative;
-    $dark-blue: #35bcf9;
+    $dark-yellow: #FDC44A;
 
     &__name {
       text-align: left;
-      background-color: $dark-blue;
+      background-color: $dark-yellow;
       color: white;
       font-size: 0.9rem;
       font-weight: 500;
@@ -92,7 +92,7 @@ $corner-radius: 15px;
 
     &__value {
       position: relative;
-      color: $dark-blue;
+      color: $dark-yellow;
       font-weight: bold;
       font-size: 1.3rem;
       border-left: $border-size solid $border-color;
@@ -104,7 +104,7 @@ $corner-radius: 15px;
     }
 
     &:nth-child(odd) .feature__name {
-      background-color: #3eb0e4;
+      background-color: #E4AB31;
     }
 
     &:first-child > .feature__name:before,
@@ -112,7 +112,7 @@ $corner-radius: 15px;
       content: '';
       height: 1.5rem;
       width: 100%;
-      background-color: $dark-blue;
+      background-color: $dark-yellow;
       position: absolute;
       left: 0;
     }
@@ -200,7 +200,7 @@ $corner-radius: 15px;
     position: relative;
 
     &:nth-child(odd) {
-      background-color: #e8f8ff;
+      background-color: #FFFFC9;
     }
   }
 }
