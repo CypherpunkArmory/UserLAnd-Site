@@ -17,12 +17,6 @@ export default {
       icon: openSourceIcon,
     },
     {
-      title: 'Secure',
-      description:
-        'Multiple architectural and implementation details that guard your use of our service.',
-      icon: protectionIcon,
-    },
-    {
       title: 'Easy',
       description:
         'The entire service is intuitive to use and does what it is supposed to do.',
@@ -33,12 +27,6 @@ export default {
       description:
         'Install and run Linux on your device.  Free and no root required.',
       icon: locallyIcon,
-    },
-    {
-      title: 'Cloud',
-      description:
-        'Install and run Linux in the cloud and then connect to it from your device',
-      icon: cloudIcon,
     },
     {
       title: 'Terminal',

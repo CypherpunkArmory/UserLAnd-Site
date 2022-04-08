@@ -2,7 +2,7 @@ export default {
   hero: {
     header: "UserLAnd: Use Linux Anywhere",
     body:
-      "The easiest way to run a Linux distribution or application. Install and run Linux locally or in the cloud. With UserLAnd the power to do or create whatever you want will never be out of reach.",
+      "The easiest way to run a Linux distribution or application on an Android device. With UserLAnd the power to do or create whatever you want will never be out of reach.",
   },
   features: {
     vertical: {

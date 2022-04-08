@@ -8,7 +8,6 @@ import '../styles/home.scss'
 import hometext from '../content/home'
 
 import GooglePlay from '../components/Button/GooglePlay'
-import AppleStore from '../components/Button/AppleStore'
 import SEO from '../components/seo'
 
 class Home extends Component {
@@ -29,7 +28,6 @@ class Home extends Component {
               <p>{hometext.hero.body}</p>
               <div className="hero__cta">
                 <GooglePlay />
-                <AppleStore />
               </div>
             </div>
             <div className="hero__media">

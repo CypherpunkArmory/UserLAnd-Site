@@ -6,7 +6,6 @@ import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import footerLogo from './LogoHeader.svg'
 import GooglePlay from '../Button/GooglePlay'
-import AppleStore from '../Button/AppleStore'
 
 class Footer extends Component {
   render() {
@@ -19,28 +18,12 @@ class Footer extends Component {
             </div>
             <div className="footer__cta col-12">
               <GooglePlay />
-              <AppleStore />
             </div>
             <nav className="navbar footer__nav col-12 offset-lg-2 col-lg-3 order-md-2">
               <ul className="flex-row navbar-nav">
                 <li className="nav-item">
-                  <Link className="nav-link" to="/privacy">
-                    Privacy
-                  </Link>
-                </li>
-                <li className="nav-item">
                   <Link className="nav-link" to="/eula">
                     EULA
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/tos">
-                    TOS
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="/dmca">
-                    DMCA
                   </Link>
                 </li>
               </ul>

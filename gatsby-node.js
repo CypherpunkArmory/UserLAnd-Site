@@ -21,7 +21,7 @@ exports.onCreatePage = async ({ page, actions }) => {
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
   const docLayout = path.resolve(`src/layouts/docs.js`)
-  
+
   return graphql(`
     {
       allMarkdownRemark(

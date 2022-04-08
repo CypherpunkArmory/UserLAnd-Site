@@ -8,18 +8,29 @@ export default function Nav({ children, routes, handlesOnClick, location }) {
   return (
     <ul styleName="nav">
       {routes.map(item => {
+        const internal = /^\/(?!\/)/.test(item.route)
+        if (internal) {
+          return (
+            <li key={item.name}>
+              <Link
+                styleName="nav__link"
+                className={classnames({
+                  active: location.pathname.indexOf(item.route) > -1,
+                })}
+                to={item.route}
+                onClick={handlesOnClick}
+              >
+                {item.name}
+              </Link>
+            </li>
+          )
+        }
         return (
           <li key={item.name}>
-            <Link
-              styleName="nav__link"
-              className={classnames({
-                active: location.pathname.indexOf(item.route) > -1,
-              })}
-              to={item.route}
-              onClick={handlesOnClick}
-            >
+            <a href={item.route}
+              styleName="nav__link">
               {item.name}
-            </Link>
+            </a>
           </li>
         )
       })}
