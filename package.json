@@ -33,7 +33,7 @@
     "gatsby-transformer-sharp": "^2.2.4",
     "jwt-decode": "^2.2.0",
     "lodash": "^4.17.15",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
