@@ -1,0 +1,114 @@
+---
+import '../styles/global.css';
+import { ORG, SITE } from '../lib/schema';
+
+interface Props {
+  title: string;
+  description: string;
+  jsonLd?: object[];
+  ogImage?: string;
+  ogType?: string;
+}
+const { title, description, jsonLd = [], ogImage = '/og-image.png', ogType = 'website' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE).href;
+const fullTitle = title.includes('UserLAnd') ? title : `${title} | UserLAnd`;
+const graph = { '@context': 'https://schema.org', '@graph': [ORG, ...jsonLd] };
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/linux/', label: 'Linux' },
+  { href: '/apps/', label: 'Apps' },
+  { href: '/games/', label: 'Games' },
+  { href: '/guides/', label: 'Guides' },
+  { href: '/faq/', label: 'FAQ' },
+  { href: 'https://blog.userland.tech', label: 'Blog' },
+  { href: 'https://github.com/CypherpunkArmory/UserLAnd', label: 'GitHub' },
+];
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/userland-logo.png" type="image/png" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM-friendly site summary" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta name="theme-color" content="#161514" />
+    <meta property="og:site_name" content="UserLAnd" />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL(ogImage, SITE).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@userlandtech" />
+    <script type="application/ld+json" set:html={JSON.stringify(graph)} />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/"><img src="/userland-logo.png" alt="" width="30" height="30" />UserLAnd</a>
+        <nav class="nav" aria-label="Main">
+          {nav.map((n) => (
+            <a href={n.href} aria-current={path.startsWith(n.href) ? 'page' : undefined}>{n.label}</a>
+          ))}
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-grid">
+          <div>
+            <h2>Linux on Android</h2>
+            <ul>
+              <li><a href="/linux/how-to-run-linux-on-android/">How to run Linux on Android</a></li>
+              <li><a href="/linux/ubuntu-on-android/">Ubuntu on Android</a></li>
+              <li><a href="/linux/kali-linux-on-android/">Kali Linux on Android</a></li>
+              <li><a href="/linux/virtual-machine-on-android/">Linux VMs on Android</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Apps</h2>
+            <ul>
+              <li><a href="/apps/gimp/">GIMP on Android</a></li>
+              <li><a href="/apps/libreoffice/">LibreOffice on Android</a></li>
+              <li><a href="/apps/vs-code/">VS Code on Android</a></li>
+              <li><a href="/apps/">All apps</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Games</h2>
+            <ul>
+              <li><a href="/games/oregon-trail/">The Oregon Trail on Android</a></li>
+              <li><a href="/games/zork/">Zork on Android</a></li>
+              <li><a href="/games/retro-games/">500+ retro games</a></li>
+              <li><a href="/games/">All games</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>UserLAnd Technologies</h2>
+            <ul>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/faq/">FAQ</a></li>
+              <li><a href="https://blog.userland.tech">Blog</a></li>
+              <li><a href="/privacy/">Privacy</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="trademarks">
+          © {new Date().getFullYear()} UserLAnd Technologies, LLC. Support: support@userland.tech.
+          The Oregon Trail, Where in the World Is Carmen Sandiego?, Number Munchers, King's Quest, Zork, Doom, Wolfenstein 3D, Street Fighter II, Mortal Kombat II, GIMP, Inkscape,
+          LibreOffice, GNU Octave, R, Python, gnuplot, Visual Studio Code, Firefox, Thunderbird, Audacity, Claude Code,
+          Codex CLI, GitHub Copilot, Gemini CLI and all other product names are trademarks of their respective
+          owners. UserLAnd Technologies is not affiliated with or endorsed by those owners. Our game apps contain
+          no game files; they load publicly available versions from the Internet Archive.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

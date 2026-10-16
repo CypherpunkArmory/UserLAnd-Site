@@ -1,0 +1,34 @@
+---
+// Shared layout for the /linux/, /apps/ and /games/ hubs.
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from './Breadcrumbs.astro';
+import AppCard from './AppCard.astro';
+import QuestionList from './QuestionList.astro';
+import { apps, sections, type Category } from '../data/apps';
+import { pagesIn } from '../lib/pages';
+import { breadcrumbs, itemList } from '../lib/schema';
+
+interface Props { section: Category; heading: string; description: string; intro: string }
+const { section, heading, description, intro } = Astro.props;
+const meta = sections[section];
+const list = apps.filter((a) => a.category === section);
+const pages = await pagesIn(section);
+const crumbs = [{ name: 'Home', path: '/' }, { name: meta.title, path: meta.path }];
+---
+<Base title={heading} description={description} jsonLd={[breadcrumbs(crumbs), itemList(list)]}>
+  <header class="section-head wrap">
+    <Breadcrumbs items={crumbs} />
+    <span class="eyebrow">{meta.title}</span>
+    <h1>{heading}</h1>
+    <p>{intro}</p>
+  </header>
+  <section class="band wrap" aria-labelledby="apps-h">
+    <h2 id="apps-h" style="margin-top:0">{section === 'linux' ? 'The app' : 'The apps'}</h2>
+    <ul class="grid">{list.map((a) => <AppCard app={a} />)}</ul>
+  </section>
+  <section class="band wrap" aria-labelledby="q-h">
+    <h2 id="q-h" style="margin-top:0">How-to answers</h2>
+    <QuestionList pages={pages} />
+  </section>
+  <slot />
+</Base>

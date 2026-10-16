@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbs } from '../lib/schema';
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'About', path: '/about/' }];
+---
+<Base title="About UserLAnd Technologies" description="UserLAnd Technologies makes UserLAnd, Linux apps for Android, and classic game apps. Made by the team behind GNURoot Debian." jsonLd={[breadcrumbs(crumbs)]}>
+  <header class="section-head wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>About UserLAnd Technologies</h1>
+  </header>
+  <section class="wrap prose" style="padding-bottom:3rem">
+    <p>
+      UserLAnd Technologies builds ways to use the full power of a computer on an Android device. We started with
+      GNURoot Debian, replaced it with <a href="/linux/">UserLAnd</a>, and now publish
+      <a href="/apps/">standalone Linux apps</a> and <a href="/games/">classic game apps</a> built on the same ideas.
+    </p>
+    <p>
+      UserLAnd is free. Paid apps and UserLAnd Pro fund its development.
+    </p>
+    <h2>Contact</h2>
+    <p>Email support@userland.tech, or report issues on <a href="https://github.com/CypherpunkArmory/UserLAnd/issues">GitHub</a>.</p>
+  </section>
+</Base>

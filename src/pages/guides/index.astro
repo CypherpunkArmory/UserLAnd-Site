@@ -1,0 +1,23 @@
+---
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import QuestionList from '../../components/QuestionList.astro';
+import { pagesIn } from '../../lib/pages';
+import { breadcrumbs } from '../../lib/schema';
+
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'Guides', path: '/guides/' }];
+const [guides, linux] = await Promise.all([pagesIn('guides'), pagesIn('linux')]);
+---
+<Base title="Linux on Android guides" description="Step-by-step guides for running Linux, Linux apps and classic games on Android with UserLAnd." jsonLd={[breadcrumbs(crumbs)]}>
+  <header class="section-head wrap">
+    <Breadcrumbs items={crumbs} />
+    <span class="eyebrow">Guides</span>
+    <h1>Guides</h1>
+    <p>Step-by-step how-tos for getting more out of Linux on Android.</p>
+  </header>
+  <section class="band wrap"><QuestionList pages={guides} /></section>
+  <section class="band wrap">
+    <h2 style="margin-top:0">Linux distributions</h2>
+    <QuestionList pages={linux} />
+  </section>
+</Base>

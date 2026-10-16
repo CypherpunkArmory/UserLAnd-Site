@@ -1,0 +1,8 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { pages: CollectionEntry<'pages'>[] }
+const { pages } = Astro.props;
+---
+<ul class="questions">
+  {pages.map((p) => <li><a href={`/${p.id}/`}>{p.data.title}</a></li>)}
+</ul>

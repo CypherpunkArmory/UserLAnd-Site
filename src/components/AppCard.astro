@@ -1,0 +1,19 @@
+---
+import { iconUrl, type App } from '../data/apps';
+import { runsShortLine } from '../lib/naming';
+interface Props { app: App }
+const { app } = Astro.props;
+---
+<li>
+  <article class="card">
+    <div class="card-head">
+      <img src={iconUrl(app)} alt="" width="56" height="56" loading="lazy" decoding="async" />
+      <div>
+        <h3><a href={`/${app.page}/`}>{app.name}</a></h3>
+        <div class="runs">{runsShortLine(app)}</div>
+      </div>
+    </div>
+    <p>{app.blurb}</p>
+    <div class="price">{app.price} · Google Play</div>
+  </article>
+</li>

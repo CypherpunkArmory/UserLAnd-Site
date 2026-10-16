@@ -1,0 +1,9 @@
+---
+import { playUrl, type App } from '../data/apps';
+interface Props { app: App; label?: string }
+const { app, label } = Astro.props;
+---
+<a class="btn btn-play" href={playUrl(app)} rel="noopener" data-app={app.id}>
+  <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.6v18.8c0 .5.5.8.9.6l16.3-9.4c.4-.2.4-.9 0-1.1L4.9 2c-.4-.2-.9.1-.9.6Z"/></svg>
+  <span><small>Get it on Google Play</small>{label ?? app.name}</span>
+</a>

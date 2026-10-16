@@ -1,0 +1,141 @@
+---
+import { getCollection, getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PlayButton from '../../components/PlayButton.astro';
+import { appById, iconUrl, sections, type Category } from '../../data/apps';
+import { assertTitleSafe, runsLine } from '../../lib/naming';
+import { breadcrumbs, faqPage, howTo, softwareApp, SITE } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages');
+  return pages.map((page) => {
+    const [section, slug] = page.id.split('/');
+    return { params: { section, slug }, props: { page } };
+  });
+}
+
+const { page } = Astro.props;
+const d = page.data;
+const section = sections[Astro.params.section as Category | 'guides'];
+const pageApps = d.apps.map(appById);
+assertTitleSafe(d.title, pageApps);
+if (d.seoTitle) assertTitleSafe(d.seoTitle, pageApps);
+
+const url = `${SITE}/${page.id}/`;
+const crumbs = [
+  { name: 'Home', path: '/' },
+  { name: section.title, path: section.path },
+  { name: d.title, path: `/${page.id}/` },
+];
+const related = (await Promise.all(d.related.map((id) => getEntry('pages', id)))).map((entry, i) => {
+  if (!entry) throw new Error(`${page.id}: related page "${d.related[i]}" does not exist`);
+  return entry;
+});
+const { Content } = await render(page);
+
+const jsonLd: object[] = [
+  breadcrumbs(crumbs),
+  ...pageApps.map(softwareApp),
+  ...(d.steps.length ? [howTo(d.title, d.description, d.steps, url)] : []),
+  ...(d.faq.length ? [faqPage(d.faq)] : []),
+];
+const disclaimers = pageApps.map((a) => a.disclaimer).filter(Boolean);
+---
+<Base title={d.seoTitle ?? d.title} description={d.description} jsonLd={jsonLd} ogType="article">
+  <header class="page-head">
+    <div class="wrap">
+      <Breadcrumbs items={crumbs} />
+      <span class="eyebrow">{section.title}</span>
+      <h1>{d.title}</h1>
+      <p class="answer" set:html={d.answer} />
+      <div class="btn-row">
+        {pageApps.map((app) => <PlayButton app={app} />)}
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap layout">
+    <article class="prose">
+      {d.steps.length > 0 && (
+        <section>
+          <h2>Step by step</h2>
+          <ol class="steps">
+            {d.steps.map((s) => (
+              <li><div><h3>{s.name}</h3><p set:html={s.text} /></div></li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {d.features.length > 0 && (
+        <section>
+          <h2>What you get</h2>
+          <ul class="checks">{d.features.map((f) => <li set:html={f} />)}</ul>
+        </section>
+      )}
+
+      {d.requirements.length > 0 && (
+        <section>
+          <h2>What you need</h2>
+          <ul class="checks">{d.requirements.map((r) => <li set:html={r} />)}</ul>
+        </section>
+      )}
+
+      <Content />
+
+      {d.freeInUserland && (
+        <section class="free-alt">
+          <h2>Prefer free? Run it inside UserLAnd</h2>
+          <p set:html={d.freeInUserland} />
+          <p><a href="/linux/how-to-run-linux-on-android/">How UserLAnd works →</a></p>
+        </section>
+      )}
+
+      {d.faq.length > 0 && (
+        <section class="faq">
+          <h2>Frequently asked questions</h2>
+          {d.faq.map((f) => (
+            <details><summary>{f.q}</summary><p set:html={f.a} /></details>
+          ))}
+        </section>
+      )}
+
+      {disclaimers.length > 0 && (
+        <section>
+          <h2>About this app</h2>
+          {disclaimers.map((t) => <p class="note">{t}</p>)}
+        </section>
+      )}
+
+      {related.length > 0 && (
+        <section>
+          <h2>Related</h2>
+          <ul class="questions">
+            {related.map((r) => <li><a href={`/${r.id}/`}>{r.data.title}</a></li>)}
+          </ul>
+        </section>
+      )}
+    </article>
+
+    <aside class="aside" aria-label="App details">
+      {pageApps.map((app) => (
+        <div class="app-box">
+          <div class="card-head">
+            <img src={iconUrl(app)} alt={`${app.name} app icon`} width="64" height="64" />
+            <div>
+              <strong>{app.name}</strong>
+              <div class="muted" style="font-size:0.88rem">by UserLAnd Technologies</div>
+            </div>
+          </div>
+          <p style="margin:0;font-size:0.95rem">{runsLine(app)}</p>
+          <dl>
+            <dt>Price</dt><dd>{app.price}</dd>
+            <dt>Platform</dt><dd>Android phones and tablets</dd>
+          </dl>
+          <PlayButton app={app} label="Install" />
+        </div>
+      ))}
+    </aside>
+  </div>
+</Base>

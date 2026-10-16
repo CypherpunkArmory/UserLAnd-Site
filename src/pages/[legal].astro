@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+export async function getStaticPaths() {
+  const docs = await getCollection('legal');
+  return docs.map((doc) => ({ params: { legal: doc.data.path.replace(/^\//, '') }, props: { doc } }));
+}
+const { doc } = Astro.props;
+const { Content } = await render(doc);
+const { title } = doc.data;
+---
+<Base title={title} description={`${title} for UserLAnd Technologies products.`}>
+  <article class="wrap prose" style="padding-block:3rem">
+    <h1 style="font-size:2rem">{title}</h1>
+    <Content />
+  </article>
+</Base>

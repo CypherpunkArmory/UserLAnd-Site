@@ -1,0 +1,26 @@
+---
+import Base from '../layouts/Base.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { breadcrumbs, faqPage } from '../lib/schema';
+
+const crumbs = [{ name: 'Home', path: '/' }, { name: 'FAQ', path: '/faq/' }];
+const faq = [
+  { q: 'What is UserLAnd?', a: 'UserLAnd is a free Android app that runs Linux distributions (Ubuntu, Debian, Kali, Arch, Alpine and Fedora) and Linux applications on Android, without root. <a href="/linux/how-to-run-linux-on-android/">How to run Linux on Android</a>.' },
+  { q: 'Do I need to root my device?', a: 'No. Nothing we make requires root.' },
+  { q: 'What does UserLAnd Pro add?', a: 'Virtual machine sessions with a full Linux kernel (on supported devices), which can run Docker; LXDE and XFCE desktops; sound and microphone; access to your phone\'s files (/sdcard); and backup and restore. Buying Pro also supports UserLAnd development.' },
+  { q: 'What are the standalone Linux apps, like GIMP and LibreDocs?', a: 'Each one runs the real Linux desktop edition of a program on Android, already set up, with touch-to-mouse controls and direct access to your Android folders. You can also install the same software yourself, free, in a UserLAnd Linux distribution with <code>apt</code>; the standalone apps save you the setup. <a href="/apps/">See all apps</a>.' },
+  { q: 'Are your Linux apps made by the original projects?', a: 'No. They are adaptations by UserLAnd Technologies that let the Linux versions run on Android. The original projects do not make or endorse them.' },
+  { q: 'How do the game apps work?', a: 'Our game apps, such as OG Trail and OG Arcade, contain no game files or ROMs. They load the publicly available, unmodified versions preserved by the Internet Archive and add touch controls. You need internet the first time a game loads. <a href="/games/">See all games</a>.' },
+  { q: 'Are the games official?', a: 'No. Our apps run the original games but are not made or endorsed by the games\' publishers. All game titles are trademarks of their respective owners.' },
+  { q: 'How do I get help or report a bug?', a: 'Email support@userland.tech, or open an issue on <a href="https://github.com/CypherpunkArmory/UserLAnd/issues">GitHub</a>.' },
+];
+---
+<Base title="Frequently asked questions" description="Answers about UserLAnd, UserLAnd Pro, our Linux apps for Android, and how our classic game apps work." jsonLd={[breadcrumbs(crumbs), faqPage(faq)]}>
+  <header class="section-head wrap">
+    <Breadcrumbs items={crumbs} />
+    <h1>Frequently asked questions</h1>
+  </header>
+  <section class="wrap prose faq" style="padding-bottom:3rem">
+    {faq.map((f) => <details open><summary>{f.q}</summary><p set:html={f.a} /></details>)}
+  </section>
+</Base>

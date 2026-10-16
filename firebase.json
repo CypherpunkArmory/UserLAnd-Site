@@ -1,14 +1,104 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "dist",
+    "cleanUrls": false,
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [ {
-      "source": "/account{,/**}",
-      "destination": "/account/index.html"
-    } ]
+    "redirects": [
+      {
+        "source": "/features{,/**}",
+        "destination": "/linux/",
+        "type": 301
+      },
+      {
+        "source": "/download{,/**}",
+        "destination": "/linux/how-to-run-linux-on-android/",
+        "type": 301
+      },
+      {
+        "source": "/docs{,/**}",
+        "destination": "/linux/",
+        "type": 301
+      },
+      {
+        "source": "/jobs{,/**}",
+        "destination": "/about/",
+        "type": 301
+      },
+      {
+        "source": "/account{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/login{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/signup{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/account-recovery{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/email-sent{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/bad-token{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/blog",
+        "destination": "https://blog.userland.tech",
+        "type": 301
+      },
+      {
+        "source": "/eula{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/tos{,/**}",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/dmca{,/**}",
+        "destination": "/",
+        "type": 301
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(png|jpg|svg|webp|woff2|css|js)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=604800"
+          }
+        ]
+      },
+      {
+        "source": "/llms*.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain; charset=utf-8"
+          }
+        ]
+      }
+    ]
   }
 }

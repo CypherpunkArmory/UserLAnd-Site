@@ -1,0 +1,110 @@
+---
+import { getEntry } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PlayButton from '../components/PlayButton.astro';
+import QuestionList from '../components/QuestionList.astro';
+import { appById, apps, iconUrl, sections } from '../data/apps';
+import { SITE } from '../lib/schema';
+
+const popular = await Promise.all(
+  [
+    'linux/how-to-run-linux-on-android',
+    'apps/gimp',
+    'games/oregon-trail',
+    'linux/ubuntu-on-android',
+    'apps/libreoffice',
+    'games/zork',
+    'apps/vs-code',
+    'linux/kali-linux-on-android',
+    'games/retro-games',
+    'apps/ai-coding-tools',
+    'linux/virtual-machine-on-android',
+    'guides/run-linux-apps-free-with-userland',
+  ].map(async (id) => {
+    const entry = await getEntry('pages', id);
+    if (!entry) throw new Error(`Home page links to missing page ${id}`);
+    return entry;
+  }),
+);
+
+const pillars = (['linux', 'apps', 'games'] as const).map((key) => ({
+  key,
+  ...sections[key],
+  apps: apps.filter((a) => a.category === key),
+}));
+pillars[0].apps = [appById('userland')];
+
+const website = {
+  '@type': 'WebSite',
+  '@id': `${SITE}/#site`,
+  url: `${SITE}/`,
+  name: 'UserLAnd',
+  description: 'Run Linux, Linux apps and classic games on Android.',
+  publisher: { '@id': `${SITE}/#org` },
+};
+---
+<Base
+  title="UserLAnd: Run Linux, Linux apps and classic games on Android"
+  description="UserLAnd Technologies makes the easiest ways to run Linux, desktop Linux apps like GIMP and LibreOffice, and classic games like The Oregon Trail on Android."
+  jsonLd={[website]}
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" style="color:var(--accent)">UserLAnd Technologies</span>
+        <h1>Run Linux, Linux apps and <em>classic games</em> on Android.</h1>
+        <p class="lead">
+          Full Linux distributions with no root. Desktop software like GIMP, LibreOffice and VS Code as one-tap apps.
+          The PC classics you grew up with, playable on a touch screen.
+        </p>
+        <div class="btn-row">
+          <PlayButton app={appById('userland')} label="UserLAnd, free" />
+          <a class="btn btn-ghost" style="color:#fff;border-color:#45423d" href="#questions">Find your answer ↓</a>
+        </div>
+      </div>
+      <div class="terminal" role="img" aria-label="A terminal answering: how do I run Linux, GIMP and The Oregon Trail on Android?">
+        <div class="terminal-bar"><span></span><span></span><span></span></div>
+        <pre><span class="t-dim">$</span> how do I run linux on android?
+<span class="t-ok">→ Install UserLAnd. Tap Ubuntu. Done.</span>
+
+<span class="t-dim">$</span> how do I run gimp on android?
+<span class="t-ok">→ Install GIMP. It's the real desktop app.</span>
+
+<span class="t-dim">$</span> how do I play the oregon trail on android?
+<span class="t-ok">→ Install OG Trail. Mind the river.</span>
+
+<span class="t-dim">$</span> <span class="cursor"></span></pre>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="pillars">
+      {pillars.map((p) => (
+        <a class="pillar" href={p.path}>
+          <h2>{p.title}</h2>
+          <p>{p.tagline}</p>
+          <div class="icons">
+            {p.apps.map((a) => <img src={iconUrl(a)} alt={a.name} title={a.name} width="36" height="36" loading="lazy" />)}
+          </div>
+          <span class="go">Explore {p.key === 'linux' ? 'Linux' : p.key} →</span>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <section class="band wrap" id="questions" aria-labelledby="q-h">
+    <h2 id="q-h">Popular questions</h2>
+    <QuestionList pages={popular} />
+  </section>
+
+  <section class="band wrap prose" aria-labelledby="why-h">
+    <h2 id="why-h" style="margin-top:0">How it works</h2>
+    <ul class="checks">
+      <li><strong>Real software, not lookalikes.</strong> Our Linux apps run the actual desktop editions of programs like GIMP and LibreOffice, inside a Linux environment that UserLAnd sets up for you.</li>
+      <li><strong>No root.</strong> Everything installs from Google Play like a normal app.</li>
+      <li><strong>Free or one tap.</strong> UserLAnd is free, and you can install any of this software in it yourself with <code>apt</code>. The standalone apps do the setup for you.</li>
+      <li><strong>The original games.</strong> Our game apps load the unmodified classics that the Internet Archive preserves and add touch controls. No ROMs, no emulator setup.</li>
+    </ul>
+  </section>
+</Base>
