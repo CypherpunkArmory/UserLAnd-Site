@@ -40,7 +40,8 @@ are handled through Google Play. Deleting your account cancels your subscription
 refund.
 
 **When there's no plan.** If you no longer have a plan or trial time, your machines stop. We may
-delete them, with their files, 30 days after warning you in the app.
+delete them, with their files, 30 days after your plan or trial ended. The app warns you, with the
+date, when you open it; subscribe before then to keep them.
 
 **Your data.** You own what you put on your machines. We store and process it only to provide the
 service, as described in the privacy policy. We take reasonable care of it, but the service can

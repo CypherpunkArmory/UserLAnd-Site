@@ -58,8 +58,8 @@ and we don't share it with anyone else unless required by law.
 
 - Your account and everything in it, until you delete it, or until we close it under the terms.
 - A cloud machine and its files, until you delete the machine or your account. If you no longer
-  have a subscription or trial time, we may delete your machines after warning you in the app;
-  see the [terms](/terms/).
+  have a subscription or trial time, we may delete your machines 30 days after it ended (the app
+  warns you when you open it); see the [terms](/terms/).
 - Server logs, 30 days.
 - Backups of our account database (which doesn't include your machines' files), 14 days.
 - After you delete your account we keep only a one-way hash of your Google account ID together
